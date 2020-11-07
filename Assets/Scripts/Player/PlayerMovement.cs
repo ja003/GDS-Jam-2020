@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		AN_Animator.SetFloat("hSpeed", RB_Body.velocity.x);
+		AN_Animator.SetFloat("SpeedH", Math.Abs(RB_Body.velocity.x + RB_Body.velocity.y));
 	}
 
 	public void Move(float pMoveH, float pMoveV)
