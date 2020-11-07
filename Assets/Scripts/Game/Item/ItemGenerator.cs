@@ -9,12 +9,11 @@ public class ItemGenerator : GameBehaviour
 
 	private void Awake()
 	{
-		DoInTime(() => StartCoroutine(GenerateItem()), 1);
+		DoInTime(GenerateItem, 1);
 	}
 
-	private IEnumerator GenerateItem()
+	private void GenerateItem()
 	{
-
 		EMapItem type = EMapItem.GSource;
 		Vector3 pos = game.MapController.GetItemSpawnPosition(type);
 
@@ -23,7 +22,6 @@ public class ItemGenerator : GameBehaviour
 		MapItem itemInstance = Instantiate(mapItemPrefab, pos, Quaternion.identity);
 		itemInstance.transform.parent = transform;
 		itemInstance.Init(type);
-		yield return new WaitForSeconds(5);
-		StartCoroutine(GenerateItem());
+		DoInTime(GenerateItem, 2);
 	}
 }

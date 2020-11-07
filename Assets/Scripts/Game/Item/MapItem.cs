@@ -1,15 +1,15 @@
-﻿using Microsoft.Unity.VisualStudio.Editor;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class MapItem : MonoBehaviour
+public class MapItem : GameBehaviour
 {
-	[SerializeField] Image image;
+	[SerializeField] SpriteRenderer icon;
 
 	internal void Init(EMapItem pType)
 	{
-		
+		icon.sprite = game.ItemManager.GetMapItemIcon(pType);
 	}
 }
