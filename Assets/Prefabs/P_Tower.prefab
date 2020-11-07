@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8682648666306345132}
   - component: {fileID: 8682648666306345133}
   - component: {fileID: 3176264849693763450}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: P_Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,6 @@ MonoBehaviour:
   level4: {fileID: 21300000, guid: 80c5d0cd983dcac4abcc8e48101d9cd9, type: 3}
   level5: {fileID: 21300000, guid: b09ad613f93477a48bed486315830965, type: 3}
   upgradeTime: 1
-  maxDistanceToUpgrade: 2
 --- !u!61 &3176264849693763450
 BoxCollider2D:
   m_ObjectHideFlags: 0

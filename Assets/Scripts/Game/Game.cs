@@ -6,6 +6,7 @@ public class Game : CSingleton<Game>
 {
     [SerializeField] public RegionController MapController;
     [SerializeField] public ItemManager ItemManager;
+    [SerializeField] public Layers Layers;
 
     protected new void Awake()
     {

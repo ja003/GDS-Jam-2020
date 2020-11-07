@@ -28,12 +28,15 @@ public class GameDebug : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.T))
         {
             var player = FindObjectOfType<PlayerMovement>();
-            var towers = FindObjectsOfType<Tower>();
-            foreach(var t in towers)
-            {
-                //t.Upgrade();
-                t.StartUpgrade(player.transform);
-            }
+            Game.Instance.ItemManager.UseItem(player.transform, EMapItem.GSource);
+
+
+            //var towers = FindObjectsOfType<Tower>();
+            //foreach(var t in towers)
+            //{
+            //    //t.Upgrade();
+            //    t.StartUpgrade(player.transform);
+            //}
         }
     }
 #endif

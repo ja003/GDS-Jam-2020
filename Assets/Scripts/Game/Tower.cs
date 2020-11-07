@@ -15,7 +15,7 @@ public class Tower : GameBehaviour
 	int level;
 
 	[SerializeField] float upgradeTime = 1;
-	[SerializeField] float maxDistanceToUpgrade = 1;
+	public const float MAX_UPG_DISTANCE = 1;
 
 	private void Awake()
 	{
@@ -34,7 +34,7 @@ public class Tower : GameBehaviour
 
 	private void CheckUpgradeProgress(Transform pWorker)
 	{
-		if(Vector2.Distance(transform.position, pWorker.position) > maxDistanceToUpgrade)
+		if(Vector2.Distance(transform.position, pWorker.position) > MAX_UPG_DISTANCE)
 		{
 			Debug.Log("Worker is too far from tower");
 			progress = 0;
