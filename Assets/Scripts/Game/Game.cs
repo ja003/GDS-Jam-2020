@@ -8,6 +8,8 @@ public class Game : CSingleton<Game>
     [SerializeField] public ItemManager ItemManager;
     [SerializeField] public Layers Layers;
 	[SerializeField] public Player Player;
+    [SerializeField] public CitizenGenerator CitizenGenerator;
+    
 
     [SerializeField] public HudController HUD;
 

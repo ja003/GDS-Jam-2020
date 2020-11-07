@@ -4,26 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class RegionController : MonoBehaviour
+public class RegionController : GameBehaviour
 {
 	[SerializeField] GameRegion prefab_Region1;
 	[SerializeField] GameRegion prefab_Region2;
 
-
 	public GameRegion Region;
 
-    public void Init()
-    {
+	Dictionary<EMapItem, List<Vector3>> itemSpawnpoints = new Dictionary<EMapItem, List<Vector3>>();
+	List<CitizenSpawnpoint> citizenSpawnpoints = new List<CitizenSpawnpoint>();
+	public List<CitizenSpawnpoint> InitialCitizenSpawnpoints = new List<CitizenSpawnpoint>();
+
+	public void Init()
+	{
 		if(Region != null)
 		{
 			Debug.Log("DEBUG: region in scene");
-			return;
 		}
-        Debug.Log("TODO: load prefab map " + Director.Instance.RegionIndex);
-		Region = Instantiate(prefab_Region1, transform);
-    }
+		else
+		{
+			Debug.Log("TODO: load prefab map " + Director.Instance.RegionIndex);
+			Region = Instantiate(prefab_Region1, transform);
+		}
+		game.CitizenGenerator.InitialSpawn();
+	}
 
-	Dictionary<EMapItem, List<Vector3>> itemSpawnpoints = new Dictionary<EMapItem, List<Vector3>>();
 
 	internal void RegisterItemSpawnpoint(EMapItem pType, Vector3 pPosition)
 	{
@@ -49,4 +54,23 @@ public class RegionController : MonoBehaviour
 		//Debug.Log($"No position for item {pType} defined");
 		return null;
 	}
+
+
+	internal void RegisterCitizenSpawnpoint(CitizenSpawnpoint pSpawnpoint)
+	{
+		if(pSpawnpoint.IsInitial)
+			InitialCitizenSpawnpoints.Add(pSpawnpoint);
+		else
+			citizenSpawnpoints.Add(pSpawnpoint);
+	}
+
+	public Vector3 GetCitizenSpawnPosition()
+	{
+		Vector3 pos = citizenSpawnpoints[Random.Range(0, citizenSpawnpoints.Count)].transform.position;
+		//if I dont add random offset the objects stays on top of each other...weird
+		const float offset = 0.5f;
+		pos += new Vector3(Random.Range(-offset, offset), Random.Range(-offset, offset), 0);
+		return pos;
+	}
+
 }

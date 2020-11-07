@@ -16,7 +16,7 @@ public class Tower : GameBehaviour, IDamageHandler
 
 	[SerializeField] float upgradeTime = 1;
 	public const float MAX_UPG_DISTANCE = 1;
-
+	[SerializeField] int spawnOnUpgradeCount = 5;
 	[SerializeField] float broadcastRange = 10;
 	[SerializeField] float broadcastFrequency = 1;
 
@@ -57,9 +57,7 @@ public class Tower : GameBehaviour, IDamageHandler
 	{
 		if(Vector2.Distance(transform.position, pWorker.transform.position) > MAX_UPG_DISTANCE)
 		{
-			Debug.Log("Worker is too far from tower");
-			progress = 0;
-			OnUpgradeFail?.Invoke();
+			OnUpgradeFailed();
 			return;
 		}
 
@@ -68,15 +66,28 @@ public class Tower : GameBehaviour, IDamageHandler
 		Debug.Log("CheckUpgradeProgress " + progress);
 		if(progress > upgradeTime)
 		{
-			Debug.Log("Upgrade complete");
-			progress = 0;
-			SetLevel(level + 1);
-			pWorker.Inventory.OnTowerUpgraded();
-			OnUpgradeSuccess?.Invoke();
+			OnUpgradeComplete(pWorker);
 			return;
 		}
 
 		DoInTime(() => CheckUpgradeProgress(pWorker), check_frequency);
+	}
+
+	private void OnUpgradeComplete(Player pWorker)
+	{
+		Debug.Log("Upgrade complete");
+		progress = 0;
+		SetLevel(level + 1);
+		pWorker.Inventory.OnTowerUpgraded();
+		OnUpgradeSuccess?.Invoke();
+		game.CitizenGenerator.SpawnCitizens(spawnOnUpgradeCount);
+	}
+
+	private void OnUpgradeFailed()
+	{
+		Debug.Log("Worker is too far from tower");
+		progress = 0;
+		OnUpgradeFail?.Invoke();
 	}
 
 	//public void Upgrade()
