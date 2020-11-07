@@ -28,6 +28,8 @@ public class MenuMap : MonoBehaviour
     {
         int regionNumber = pIndex + 1;
         Debug.Log("LoadRegion " + regionNumber);
-        SceneManager.LoadScene("Scenes/Regions/Region" + regionNumber);
+        Director.Instance.RegionIndex = pIndex;
+
+        SceneManager.LoadScene("Game");
     }
 }

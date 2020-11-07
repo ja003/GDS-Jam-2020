@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapZone : MonoBehaviour
+public class GameRegion : MonoBehaviour
 {
-    [SerializeField] Tower tower;
+    [SerializeField] List<RegionZone> zones;
 }

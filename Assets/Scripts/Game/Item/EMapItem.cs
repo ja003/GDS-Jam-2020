@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapController : MonoBehaviour
+public enum EMapItem
 {
-    [SerializeField] List<MapZone> zones;
+    None,
+    GSource,
+    TinFoilHat
 }
