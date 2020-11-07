@@ -5,4 +5,6 @@ using UnityEngine;
 public class Layers : MonoBehaviour
 {
     [SerializeField] public LayerMask Tower;
+    [SerializeField] public LayerMask Player;
+    [SerializeField] public LayerMask Citizen;
 }

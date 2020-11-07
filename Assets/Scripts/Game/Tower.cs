@@ -17,9 +17,30 @@ public class Tower : GameBehaviour
 	[SerializeField] float upgradeTime = 1;
 	public const float MAX_UPG_DISTANCE = 1;
 
+	[SerializeField] float broadcastRange = 10;
+	[SerializeField] float broadcastFrequency = 1;
+
+	[SerializeField] bool debug_level1;
+
+
 	private void Awake()
 	{
 		SetLevel(0);
+		if(debug_level1)
+			SetLevel(1);
+	}
+
+	private void Broadcast()
+	{
+		Debug.Log("Broadcast ");
+		var citizens = Physics2D.CircleCastAll(transform.position, broadcastRange, Vector2.zero, 0, game.Layers.Citizen);
+		foreach(var c in citizens)
+		{
+			CitizenBrain citizen = c.transform.GetComponent<CitizenBrain>();
+			citizen.OnBroadcast(this);
+		}
+
+		DoInTime(Broadcast, broadcastFrequency);
 	}
 
 	public void StartUpgrade(Transform pWorker)
@@ -74,7 +95,10 @@ public class Tower : GameBehaviour
 		Debug.Log("SetLevel " + pLevel);
 		level = pLevel;
 		spriteRend.sprite = GetLevelImage(pLevel);
+		if(level == 1)
+			DoInTime(Broadcast, 1);
 	}
+
 
 	private Sprite GetLevelImage(int pLevel)
 	{
