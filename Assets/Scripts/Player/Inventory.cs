@@ -8,15 +8,15 @@ public class Inventory : GameBehaviour
 	private const int ITEM_COUNT = 10;
 	Dictionary<EMapItem, int> itemsCount = new Dictionary<EMapItem, int>();
 	//Dictionary<EMapItem, int> itemsIndexes = new Dictionary<EMapItem, int>();
-	EMapItem[] items;
+	//EMapItem[] items;
 
 	private void Awake()
 	{
-		items = new EMapItem[ITEM_COUNT];
-		for(int i = 0; i < ITEM_COUNT; i++)
-		{
-			items[i] = EMapItem.None;
-		}
+		//items = new EMapItem[ITEM_COUNT];
+		//for(int i = 0; i < ITEM_COUNT; i++)
+		//{
+		//	items[i] = EMapItem.None;
+		//}
 
 		//fixed positions
 		AddItem(EMapItem.GSource, 0);
@@ -45,9 +45,11 @@ public class Inventory : GameBehaviour
 		}
 		else
 		{
-			items[itemsCount.Values.Count] = pItem;
+			//items[itemsCount.Values.Count] = pItem;
 			itemsCount.Add(pItem, pCount);
 		}
+
+		game.HUD.Inventory.OnItemCountChanged(pItem, itemsCount[pItem]);
 
 		return true;
 	}
@@ -67,18 +69,19 @@ public class Inventory : GameBehaviour
 		}
 
 		itemsCount[pItem] -= 1;
+		game.HUD.Inventory.OnItemCountChanged(pItem, itemsCount[pItem]);
 	}
 
 	public bool UseItem(Player pPlayer, int pIndex)
 	{
-		itemsCount.TryGetValue(items[pIndex], out int count);
-		if(items[pIndex] == EMapItem.None || count == 0)
+		itemsCount.TryGetValue((EMapItem)pIndex, out int count);
+		if(count == 0)
 		{
-			Debug.Log("Cant use item " + pIndex);
+			Debug.Log("Cant use item " + (EMapItem)pIndex);
 			return false;
 		}
 
-		game.ItemManager.UseItem(pPlayer, items[pIndex]);
+		game.ItemManager.UseItem(pPlayer, (EMapItem)pIndex);
 
 		return true;
 	}

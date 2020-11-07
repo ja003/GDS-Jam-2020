@@ -15,7 +15,15 @@ public class PlayerInput : PlayerBehaviour
 	{
 		if(Input.GetKeyDown(KeyCode.Alpha1))
 		{
-			player.Inventory.UseItem(player, 0);
+			player.Inventory.UseItem(player, 1);
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha2))
+		{
+			player.Inventory.UseItem(player, 2);
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			player.Inventory.UseItem(player, 3);
 		}
 	}
 }
