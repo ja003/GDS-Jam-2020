@@ -7,11 +7,12 @@ using Random = UnityEngine.Random;
 public class CitizenBrain : GameBehaviour
 {
 	[SerializeField] PlayerMovement movement;
-	[SerializeField] Transform target;
+	[SerializeField] IDamageHandler attackTarget;
 	[SerializeField] Vector3? targetPos;
 
 	[SerializeField] float sightRange = 5;
 	[SerializeField] float attackRange = 1;
+	[SerializeField] float damage = 5;
 
 	[SerializeField] float timeToForgetBroadcast = 5;
 
@@ -19,15 +20,18 @@ public class CitizenBrain : GameBehaviour
 	[SerializeField] Transform debug_target;
 	[SerializeField] bool debug_idle;
 
+	[SerializeField] CitizenThinkBubble bubble;
+
+
 	bool idle;
 	bool attack;
 
 	private void Update()
 	{
-		if(debug_target)
-			target = debug_target;
-		if(target != null)
-			targetPos = target.position;
+		//if(debug_target)
+		//	attackTarget = debug_target;
+		if(attackTarget != null)
+			targetPos = attackTarget.GetPosition();
 		if(targetPos == null)
 		{
 			movement.Move(0, 0);
@@ -60,7 +64,7 @@ public class CitizenBrain : GameBehaviour
 		var playerHit = Physics2D.CircleCast(transform.position, sightRange, Vector2.zero, 0, game.Layers.Player);
 		//todo: only if he has G
 
-		target = null;
+		attackTarget = null;
 		targetPos = null;
 		attack = false;
 		idle = false;
@@ -70,12 +74,12 @@ public class CitizenBrain : GameBehaviour
 
 		if(playerHit)
 		{
-			target = playerHit.transform;
+			attackTarget = playerHit.transform.GetComponent<Player>().Energy;
 			attack = true;
 		}
 		else if(WasBrodcastedRecently())
 		{
-			target = lastTowerNoticed.transform;
+			attackTarget = lastTowerNoticed;
 			attack = true;
 		}
 		else
@@ -95,10 +99,15 @@ public class CitizenBrain : GameBehaviour
 			}
 		}
 
-		if(attack && GetDistanceTo(target) < attackRange)
+		if(attack && attackTarget != null && GetDistanceTo(attackTarget.GetPosition()) < attackRange)
 		{
-			Attack(target);
+			Attack(attackTarget);
 		}
+
+		if(attackTarget != null)
+			bubble.SetReaction(ECitizenReaction.Trigger);
+		else
+			bubble.SetReaction(ECitizenReaction.None);
 
 		DoInTime(Evaluate, evaluateFrequency);
 	}
@@ -125,8 +134,9 @@ public class CitizenBrain : GameBehaviour
 		lastTimeBroadcasted = Time.time;
 	}
 
-	private void Attack(Transform pTarget)
+	private void Attack(IDamageHandler pTarget)
 	{
-		Debug.Log("Attack " + pTarget.name);
+		Debug.Log("Attack " + pTarget);
+		pTarget.OnReceivedDamage(damage);
 	}
 }

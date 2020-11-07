@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ItemManager : GameBehaviour
 {
-	[SerializeField] Sprite gSourceMapIcon;
+	[SerializeField] Sprite mapIcon_gSource;
+	[SerializeField] Sprite mapIcon_TrueNews;
 
 
 	public Sprite GetMapItemIcon(EMapItem pType)
@@ -14,7 +15,9 @@ public class ItemManager : GameBehaviour
 			case EMapItem.None:
 				break;
 			case EMapItem.GSource:
-				return gSourceMapIcon;
+				return mapIcon_gSource;
+			case EMapItem.TrueNews:
+				return mapIcon_TrueNews;
 			case EMapItem.TinFoilHat:
 				break;
 			default:

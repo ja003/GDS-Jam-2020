@@ -20,6 +20,7 @@ public class Inventory : GameBehaviour
 
 		//fixed positions
 		AddItem(EMapItem.GSource, 0);
+		AddItem(EMapItem.TrueNews, 0);
 		AddItem(EMapItem.TinFoilHat, 0);
 	}
 

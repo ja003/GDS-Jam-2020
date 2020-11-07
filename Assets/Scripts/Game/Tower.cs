@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : GameBehaviour
+public class Tower : GameBehaviour, IDamageHandler
 {
 	[SerializeField] Sprite level0;
 	[SerializeField] Sprite level1;
@@ -120,5 +120,15 @@ public class Tower : GameBehaviour
 		}
 		Debug.LogError("Cant get level " + pLevel);
 		return null;
+	}
+
+	public void OnReceivedDamage(float pDamage)
+	{
+		throw new NotImplementedException();
+	}
+
+	public Vector3 GetPosition()
+	{
+		return transform.position;
 	}
 }

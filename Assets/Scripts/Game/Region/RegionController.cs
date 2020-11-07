@@ -22,7 +22,7 @@ public class RegionController : MonoBehaviour
 
 	}
 
-	public Vector3 GetItemSpawnPosition(EMapItem pType)
+	public Vector3? GetItemSpawnPosition(EMapItem pType)
 	{
 		List<Vector3> positions = new List<Vector3>();
 		itemSpawnpoints.TryGetValue(pType, out positions);
@@ -34,7 +34,7 @@ public class RegionController : MonoBehaviour
 			return pos;
 		}
 
-		Debug.LogError($"No posiiton for item {pType} defined");
-		return Vector3.zero;
+		Debug.Log($"No position for item {pType} defined");
+		return null;
 	}
 }

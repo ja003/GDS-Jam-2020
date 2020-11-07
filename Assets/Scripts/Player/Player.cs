@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
 	[SerializeField] public Inventory Inventory;
 	[SerializeField] public PlayerMovement Movement;
+	[SerializeField] public PlayerEnergy Energy;
 
 	private void OnTriggerStay2D(Collider2D pCollision)
 	{
