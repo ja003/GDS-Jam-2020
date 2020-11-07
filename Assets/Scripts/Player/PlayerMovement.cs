@@ -24,6 +24,11 @@ public class PlayerMovement : MonoBehaviour
 		AN_Animator.SetFloat("hSpeed", RB_Body.velocity.x);
 	}
 
+	private void OnTriggerStay2D(Collider2D collision)
+	{
+		Destroy(collision.gameObject);
+	}
+
 	public void Move(float pMoveH, float pMoveV)
 	{
 		RB_Body.velocity = new Vector2(pMoveH * speed, pMoveV * speed);
