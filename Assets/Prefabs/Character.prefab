@@ -193,8 +193,8 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -69952071
+  m_SortingLayer: 2
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -593,8 +593,8 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -69952071
+  m_SortingLayer: 2
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0
@@ -747,8 +747,8 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -69952071
+  m_SortingLayer: 2
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0
@@ -1078,8 +1078,8 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -69952071
+  m_SortingLayer: 2
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
@@ -1141,7 +1141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.047}
-  m_Length: 0.15676071
+  m_Length: 0.15676072
   m_ChildTransform: {fileID: 7747416985319886522}
   m_AttachedIK: {fileID: 7747416984727539429}
 --- !u!1 &7747416985278133406
@@ -1239,7 +1239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.047}
-  m_Length: 0.16773614
+  m_Length: 0.16773617
   m_ChildTransform: {fileID: 7747416984822156957}
   m_AttachedIK: {fileID: 7747416984727539429}
 --- !u!1 &7747416985344737124
@@ -1427,8 +1427,8 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -69952071
+  m_SortingLayer: 2
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -1489,7 +1489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.047}
-  m_Length: 0.37458134
+  m_Length: 0.37458122
   m_ChildTransform: {fileID: 7747416985611021735}
   m_AttachedIK: {fileID: 7747416984065900316}
 --- !u!1 &7747416985611021734
@@ -1584,7 +1584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 0.047}
-  m_Length: 0.35838002
+  m_Length: 0.35838014
   m_ChildTransform: {fileID: 7747416984839287882}
   m_AttachedIK: {fileID: 7747416984054212157}
 --- !u!1 &7747416985716435295
@@ -1677,8 +1677,8 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -69952071
+  m_SortingLayer: 2
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
@@ -1705,6 +1705,7 @@ GameObject:
   - component: {fileID: 7747416985950022260}
   - component: {fileID: 7747416985950022258}
   - component: {fileID: 7747416985950022261}
+  - component: {fileID: 2510389479688501787}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1768,3 +1769,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!210 &2510389479688501787
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7747416985950022263}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10
