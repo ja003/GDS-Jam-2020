@@ -8,6 +8,11 @@ public class Player : MonoBehaviour
 	[SerializeField] public PlayerMovement Movement;
 	[SerializeField] public PlayerEnergy Energy;
 
+	[SerializeField] public Transform ItemSpawnPos;
+	[SerializeField] public TinFoilHat TinFoilHat;
+
+	[SerializeField] public float ThrowForce = 5;
+
 	private void OnTriggerStay2D(Collider2D pCollision)
 	{
 		if (pCollision.tag == "Collectable")

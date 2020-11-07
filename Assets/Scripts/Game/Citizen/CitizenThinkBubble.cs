@@ -6,8 +6,14 @@ using UnityEngine.UI;
 public class CitizenThinkBubble : GameBehaviour
 {
 	[SerializeField] Sprite spriteTrigger;
+	[SerializeField] Sprite spriteWhat;
 
 	[SerializeField] SpriteRenderer content;
+
+	private void Awake()
+	{
+		SetReaction(ECitizenReaction.None);
+	}
 
 	public void SetReaction(ECitizenReaction pReaction)
 	{
@@ -23,6 +29,8 @@ public class CitizenThinkBubble : GameBehaviour
 				return null;
 			case ECitizenReaction.Trigger:
 				return spriteTrigger;
+			case ECitizenReaction.What:
+				return spriteWhat;
 		}
 		return null;
 	}
@@ -32,5 +40,6 @@ public class CitizenThinkBubble : GameBehaviour
 public enum ECitizenReaction
 {
 	None,
-	Trigger
+	Trigger,
+	What
 }

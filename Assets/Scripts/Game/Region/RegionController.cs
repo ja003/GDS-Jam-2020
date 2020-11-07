@@ -34,7 +34,7 @@ public class RegionController : MonoBehaviour
 			return pos;
 		}
 
-		Debug.Log($"No position for item {pType} defined");
+		//Debug.Log($"No position for item {pType} defined");
 		return null;
 	}
 }

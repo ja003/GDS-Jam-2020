@@ -10,6 +10,8 @@ public class Inventory : GameBehaviour
 	//Dictionary<EMapItem, int> itemsIndexes = new Dictionary<EMapItem, int>();
 	//EMapItem[] items;
 
+	[SerializeField] bool debug_StartupItems;
+
 	private void Awake()
 	{
 		//items = new EMapItem[ITEM_COUNT];
@@ -22,6 +24,13 @@ public class Inventory : GameBehaviour
 		AddItem(EMapItem.GSource, 0);
 		AddItem(EMapItem.TrueNews, 0);
 		AddItem(EMapItem.TinFoilHat, 0);
+
+		if(debug_StartupItems)
+		{
+			AddItem(EMapItem.GSource, 3);
+			AddItem(EMapItem.TrueNews, 3);
+			AddItem(EMapItem.TinFoilHat, 3);
+		}
 	}
 
 	public bool AddItem(EMapItem pItem, int pCount = 1)
@@ -82,13 +91,17 @@ public class Inventory : GameBehaviour
 			return false;
 		}
 
-		game.ItemManager.UseItem(pPlayer, (EMapItem)pIndex);
+		return game.ItemManager.UseItem(pPlayer, (EMapItem)pIndex);
 
-		return true;
 	}
 
 	internal void OnTowerUpgraded()
 	{
 		RemoveItem(EMapItem.GSource);
+	}
+
+	internal bool HasItem(EMapItem pItem)
+	{
+		return itemsCount[pItem] > 0;
 	}
 }

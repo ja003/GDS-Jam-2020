@@ -7,6 +7,8 @@ public class ItemManager : GameBehaviour
 	[SerializeField] Sprite mapIcon_gSource;
 	[SerializeField] Sprite mapIcon_TrueNews;
 
+	[SerializeField] public TrueNews prefab_TrueNews;
+
 
 	public Sprite GetMapItemIcon(EMapItem pType)
 	{
@@ -26,7 +28,7 @@ public class ItemManager : GameBehaviour
 		return null;
 	}
 
-	public void UseItem(Player pPlayer, EMapItem pType)
+	public bool UseItem(Player pPlayer, EMapItem pType)
 	{
 		switch(pType)
 		{
@@ -42,10 +44,27 @@ public class ItemManager : GameBehaviour
 				{
 					Debug.Log("No tower near");
 				}
+				return true;
 
-				break;
+			case EMapItem.TrueNews:
+				TrueNews trueNewsInstance = Instantiate(prefab_TrueNews);
+				trueNewsInstance.transform.parent = transform;
+				trueNewsInstance.Throw(pPlayer);
+				pPlayer.Inventory.RemoveItem(pType);
+				return true;
+				
+
 			case EMapItem.TinFoilHat:
-				break;
+				if(pPlayer.TinFoilHat.IsActive)
+				{
+					Debug.Log("Tinfoil hat is already active");
+					return false;
+				}
+				pPlayer.TinFoilHat.Activate();
+				pPlayer.Inventory.RemoveItem(pType);
+				return true;
 		}
+
+		return false;
 	}
 }

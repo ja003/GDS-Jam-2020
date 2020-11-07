@@ -22,6 +22,8 @@ public class CitizenBrain : GameBehaviour
 
 	[SerializeField] CitizenThinkBubble bubble;
 
+	protected const float REACH_DIST_TOLLERANCE = 0.3f;
+
 
 	bool idle;
 	bool attack;
@@ -39,15 +41,23 @@ public class CitizenBrain : GameBehaviour
 		}
 
 		Vector3 targetPosition = (Vector3)targetPos;
-		Vector3 dir = (targetPosition - transform.position).normalized;
-		if(idle)
-			return;
-		if(attack && GetDistanceTo(targetPosition) < attackRange - DIST_OFFSET)
-			return;
-		if(GetDistanceTo(targetPosition) < DIST_OFFSET)
-			return;
+		Utils.DebugDrawCross(targetPosition, Color.red);
 
-		//Debug.Log("Move " + dir);
+		Vector3 dir = (targetPosition - transform.position).normalized;
+		
+		float dist = GetDistanceTo(targetPosition);
+		if(attack && dist < attackRange - DIST_OFFSET)
+			idle = true;
+		if(dist < REACH_DIST_TOLLERANCE)
+			idle = true;
+
+		if(idle)
+		{
+			Idle();
+			return;
+		}
+
+		//Debug.Log($"Move {dir} | dist = {dist}");
 		movement.Move(dir.x, dir.y);
 	}
 
@@ -61,8 +71,6 @@ public class CitizenBrain : GameBehaviour
 	private void Evaluate()
 	{
 		//Debug.Log("Evaluate ");
-		var playerHit = Physics2D.CircleCast(transform.position, sightRange, Vector2.zero, 0, game.Layers.Player);
-		//todo: only if he has G
 
 		attackTarget = null;
 		targetPos = null;
@@ -72,14 +80,23 @@ public class CitizenBrain : GameBehaviour
 		if(debug_idle)
 			Idle();
 
-		if(playerHit)
+
+		var playerHit = Physics2D.CircleCast(transform.position, sightRange, Vector2.zero, 0, game.Layers.Player);
+		//todo: only if he has G
+
+		ECitizenReaction reaction = ECitizenReaction.None;
+		if(CheckTrueNews())
 		{
-			attackTarget = playerHit.transform.GetComponent<Player>().Energy;
-			attack = true;
+			reaction = ECitizenReaction.What;
+		}
+		else if(CheckPlayer())
+		{
+			reaction = ECitizenReaction.Trigger;
 		}
 		else if(WasBrodcastedRecently())
 		{
 			attackTarget = lastTowerNoticed;
+			reaction = ECitizenReaction.Trigger;
 			attack = true;
 		}
 		else
@@ -104,12 +121,51 @@ public class CitizenBrain : GameBehaviour
 			Attack(attackTarget);
 		}
 
-		if(attackTarget != null)
-			bubble.SetReaction(ECitizenReaction.Trigger);
-		else
-			bubble.SetReaction(ECitizenReaction.None);
+		bubble.SetReaction(reaction);
 
 		DoInTime(Evaluate, evaluateFrequency);
+	}
+
+	protected new float GetDistanceTo(Vector3 pPosition)
+	{
+		return movement.GetDistanceTo(pPosition);
+	}
+
+	private bool CheckTrueNews()
+	{
+		var trueNewsHit = Physics2D.CircleCastAll(transform.position, sightRange, Vector2.zero, 0, game.Layers.Item);
+		foreach(var item in trueNewsHit)
+		{
+			TrueNews trueNews = item.transform.GetComponent<TrueNews>();
+			if(trueNews)
+			{
+				//bubble.SetReaction(ECitizenReaction.What);
+				targetPos = trueNews.GetPosition();
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private bool CheckPlayer()
+	{
+		var playerHit = Physics2D.CircleCast(transform.position, sightRange, Vector2.zero, 0, game.Layers.Player);
+		if(!playerHit)
+			return false;
+
+		Player player = playerHit.transform.GetComponent<Player>();
+		//only target player if he is carrying a G
+		bool hasG = player.Inventory.HasItem(EMapItem.GSource);
+		if(!hasG)
+			return false;
+
+		bool isWearingHat = player.TinFoilHat.IsActive;
+		if(isWearingHat)
+			return false;
+
+		attackTarget = playerHit.transform.GetComponent<Player>().Energy;
+		attack = true;
+		return true;
 	}
 
 	private void Idle()

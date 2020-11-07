@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : PlayerBehaviour
 {
 	[SerializeField]
 	private float speed = 1.0f;
@@ -60,5 +60,10 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.y *= -1;
 		transform.localScale = theScale;
+	}
+
+	public float GetDistanceTo(Vector3 pPos)
+	{
+		return Utils.GetDistanceFromBox(pPos, boxCollider2D);
 	}
 }
