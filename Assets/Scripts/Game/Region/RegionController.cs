@@ -6,9 +6,21 @@ using Random = UnityEngine.Random;
 
 public class RegionController : MonoBehaviour
 {
+	[SerializeField] GameRegion prefab_Region1;
+	[SerializeField] GameRegion prefab_Region2;
+
+
+	public GameRegion Region;
+
     public void Init()
     {
+		if(Region != null)
+		{
+			Debug.Log("DEBUG: region in scene");
+			return;
+		}
         Debug.Log("TODO: load prefab map " + Director.Instance.RegionIndex);
+		Region = Instantiate(prefab_Region1, transform);
     }
 
 	Dictionary<EMapItem, List<Vector3>> itemSpawnpoints = new Dictionary<EMapItem, List<Vector3>>();
