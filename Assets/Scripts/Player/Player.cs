@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 	[SerializeField] public Transform ItemSpawnPos;
 	[SerializeField] public TinFoilHat TinFoilHat;
 
+	[SerializeField] public ThinkBubble ThinkBubble;
+
+
 	[SerializeField] public float ThrowForce = 5;
 
 	private void OnTriggerStay2D(Collider2D pCollision)

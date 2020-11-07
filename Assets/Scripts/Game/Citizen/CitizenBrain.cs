@@ -20,7 +20,7 @@ public class CitizenBrain : GameBehaviour
 	[SerializeField] Transform debug_target;
 	[SerializeField] bool debug_idle;
 
-	[SerializeField] CitizenThinkBubble bubble;
+	[SerializeField] ThinkBubble bubble;
 
 	protected const float REACH_DIST_TOLLERANCE = 0.3f;
 
@@ -84,19 +84,19 @@ public class CitizenBrain : GameBehaviour
 		var playerHit = Physics2D.CircleCast(transform.position, sightRange, Vector2.zero, 0, game.Layers.Player);
 		//todo: only if he has G
 
-		ECitizenReaction reaction = ECitizenReaction.None;
+		EReaction reaction = EReaction.None;
 		if(CheckTrueNews())
 		{
-			reaction = ECitizenReaction.What;
+			reaction = EReaction.What;
 		}
 		else if(CheckPlayer())
 		{
-			reaction = ECitizenReaction.Trigger;
+			reaction = EReaction.Trigger;
 		}
 		else if(WasBrodcastedRecently())
 		{
 			attackTarget = lastTowerNoticed;
-			reaction = ECitizenReaction.Trigger;
+			reaction = EReaction.Trigger;
 			attack = true;
 		}
 		else

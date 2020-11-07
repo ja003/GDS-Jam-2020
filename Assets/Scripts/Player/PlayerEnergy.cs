@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +25,18 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 	private void SetEnergy(float pEnergy)
 	{
 		Energy = pEnergy;
+		Energy = Mathf.Clamp(Energy, 0, 100);
 		Debug.Log($"Energy left = {Energy}");
 		game.HUD.Energy.energyText.text = $"{Energy}/100!";
+
+		if(Energy < 1)
+		{
+			Debug.Log("Player is tired of this shit. TODO: END");
+		}
+	}
+
+	internal void AddEnergy(float healAmount)
+	{
+		SetEnergy(Energy + healAmount);
 	}
 }
