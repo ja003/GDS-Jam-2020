@@ -43,7 +43,7 @@ public class Tower : GameBehaviour
 		DoInTime(Broadcast, broadcastFrequency);
 	}
 
-	public void StartUpgrade(Transform pWorker)
+	public void StartUpgrade(Player pWorker)
 	{
 		CheckUpgradeProgress(pWorker);
 	}
@@ -53,9 +53,9 @@ public class Tower : GameBehaviour
 
 	float progress;
 
-	private void CheckUpgradeProgress(Transform pWorker)
+	private void CheckUpgradeProgress(Player pWorker)
 	{
-		if(Vector2.Distance(transform.position, pWorker.position) > MAX_UPG_DISTANCE)
+		if(Vector2.Distance(transform.position, pWorker.transform.position) > MAX_UPG_DISTANCE)
 		{
 			Debug.Log("Worker is too far from tower");
 			progress = 0;
@@ -71,6 +71,7 @@ public class Tower : GameBehaviour
 			Debug.Log("Upgrade complete");
 			progress = 0;
 			SetLevel(level + 1);
+			pWorker.Inventory.OnTowerUpgraded();
 			OnUpgradeSuccess?.Invoke();
 			return;
 		}

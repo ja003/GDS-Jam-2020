@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMovement))]
-public class PlayerInput : MonoBehaviour
+public class PlayerInput : PlayerBehaviour
 {
-	private PlayerMovement movement;
-
-	private void Awake()
-	{
-		movement = GetComponent<PlayerMovement>();
-	}
-
 	private void FixedUpdate()
 	{
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
-		movement.Move(h, v);
+		player.Movement.Move(h, v);
+	}
+
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.Alpha1))
+		{
+			player.Inventory.UseItem(player, 0);
+		}
 	}
 }

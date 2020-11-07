@@ -27,8 +27,8 @@ public class GameDebug : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.T))
         {
-            var player = FindObjectOfType<PlayerMovement>();
-            Game.Instance.ItemManager.UseItem(player.transform, EMapItem.GSource);
+            var player = FindObjectOfType<Player>();
+            Game.Instance.ItemManager.UseItem(player, EMapItem.GSource);
 
 
             //var towers = FindObjectsOfType<Tower>();

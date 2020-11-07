@@ -23,14 +23,14 @@ public class ItemManager : GameBehaviour
 		return null;
 	}
 
-	public void UseItem(Transform pPlayer, EMapItem pType)
+	public void UseItem(Player pPlayer, EMapItem pType)
 	{
 		switch(pType)
 		{
 			case EMapItem.None:
 				break;
 			case EMapItem.GSource:
-				var hit = Physics2D.CircleCast(pPlayer.position, Tower.MAX_UPG_DISTANCE, Vector2.zero, 0, game.Layers.Tower);
+				var hit = Physics2D.CircleCast(pPlayer.transform.position, Tower.MAX_UPG_DISTANCE, Vector2.zero, 0, game.Layers.Tower);
 				if(hit)
 				{
 					hit.transform.gameObject.GetComponent<Tower>().StartUpgrade(pPlayer);

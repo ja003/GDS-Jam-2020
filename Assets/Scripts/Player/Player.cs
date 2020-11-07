@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+	[SerializeField] public Inventory Inventory;
+	[SerializeField] public PlayerMovement Movement;
 
 	private void OnTriggerStay2D(Collider2D pCollision)
 	{
 		if (pCollision.tag == "Collectable")
 		{
-			Destroy(pCollision.gameObject);
+			MapItem item = pCollision.gameObject.GetComponent<MapItem>();
+
+			if(Inventory.AddItem(item.Type))
+				Destroy(item.gameObject);
 		}
 
 

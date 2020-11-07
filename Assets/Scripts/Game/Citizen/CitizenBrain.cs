@@ -17,6 +17,10 @@ public class CitizenBrain : GameBehaviour
 
 
 	[SerializeField] Transform debug_target;
+	[SerializeField] bool debug_idle;
+
+	bool idle;
+	bool attack;
 
 	private void Update()
 	{
@@ -32,7 +36,11 @@ public class CitizenBrain : GameBehaviour
 
 		Vector3 targetPosition = (Vector3)targetPos;
 		Vector3 dir = (targetPosition - transform.position).normalized;
-		if(GetDistanceTo(targetPosition) < attackRange - DIST_OFFSET)
+		if(idle)
+			return;
+		if(attack && GetDistanceTo(targetPosition) < attackRange - DIST_OFFSET)
+			return;
+		if(GetDistanceTo(targetPosition) < DIST_OFFSET)
 			return;
 
 		//Debug.Log("Move " + dir);
@@ -51,10 +59,14 @@ public class CitizenBrain : GameBehaviour
 		//Debug.Log("Evaluate ");
 		var playerHit = Physics2D.CircleCast(transform.position, sightRange, Vector2.zero, 0, game.Layers.Player);
 		//todo: only if he has G
-		bool attack = false;
 
 		target = null;
 		targetPos = null;
+		attack = false;
+		idle = false;
+
+		if(debug_idle)
+			Idle();
 
 		if(playerHit)
 		{
@@ -70,8 +82,7 @@ public class CitizenBrain : GameBehaviour
 		{
 			if(Random.Range(0, 1f) > 0.5f)
 			{
-				//Idle
-				target = transform;
+				Idle();
 				//todo: he doesnt stop
 				//Debug.Log("Idle");
 			}
@@ -90,6 +101,13 @@ public class CitizenBrain : GameBehaviour
 		}
 
 		DoInTime(Evaluate, evaluateFrequency);
+	}
+
+	private void Idle()
+	{
+		//Debug.Log("Idle");
+		idle = true;
+		movement.Move(0, 0);
 	}
 
 	private bool WasBrodcastedRecently()
