@@ -18,4 +18,17 @@ public class GameBehaviour : MonoBehaviour
         yield return new WaitForSeconds(pTime);
         pAction.Invoke();
     }
+
+    /// SELF-GETTERS
+
+    private SpriteRenderer _spriteRend;
+    protected SpriteRenderer spriteRend
+    {
+        get
+        {
+            if(_spriteRend == null)
+                _spriteRend = GetComponent<SpriteRenderer>();
+            return _spriteRend;
+        }
+    }
 }

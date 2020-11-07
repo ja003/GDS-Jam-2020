@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RegionController : MonoBehaviour
 {
@@ -26,7 +27,12 @@ public class RegionController : MonoBehaviour
 		List<Vector3> positions = new List<Vector3>();
 		itemSpawnpoints.TryGetValue(pType, out positions);
 		if(positions != null && positions.Count > 0)
-			return positions[UnityEngine.Random.Range(0, positions.Count)];
+		{
+			Vector3 pos = positions[Random.Range(0, positions.Count)];
+			//if I dont add random offset the objects stays on top of each other...weird
+			pos += new Vector3(Random.Range(0, 0.5f), Random.Range(0, 0.5f), 0);
+			return pos;
+		}
 
 		Debug.LogError($"No posiiton for item {pType} defined");
 		return Vector3.zero;

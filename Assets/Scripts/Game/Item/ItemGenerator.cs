@@ -17,7 +17,7 @@ public class ItemGenerator : GameBehaviour
 		EMapItem type = EMapItem.GSource;
 		Vector3 pos = game.MapController.GetItemSpawnPosition(type);
 
-		Debug.Log($"Generate item {type} at {pos}");
+		//Debug.Log($"Generate item {type} at {pos}");
 
 		MapItem itemInstance = Instantiate(mapItemPrefab, pos, Quaternion.identity);
 		itemInstance.transform.parent = transform;
