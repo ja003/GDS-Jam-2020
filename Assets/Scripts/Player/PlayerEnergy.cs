@@ -9,6 +9,7 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 	public float Energy = 100;
 
 	[SerializeField] List<SpriteMeshInstance> bodySprites;
+	[SerializeField] Color hitColor;
 
 	private void Awake()
 	{
@@ -23,7 +24,7 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 	public void OnReceivedDamage(float pDamage)
 	{
 		AddEnergy(-pDamage);
-		SetColor(Color.red);
+		SetColor(hitColor);
 		DoInTime(() => SetColor(Color.white), 0.1f);
 	}
 

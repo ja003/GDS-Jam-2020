@@ -556,6 +556,7 @@ MonoBehaviour:
   prefab_Region1: {fileID: 2451023035137221874, guid: d944f3fa0cb1de64992d78395b6bede7,
     type: 3}
   prefab_Region2: {fileID: 0}
+  prefab_Region3: {fileID: 0}
   Region: {fileID: 1087680491}
   InitialCitizenSpawnpoints: []
 --- !u!1 &163806255

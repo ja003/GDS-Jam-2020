@@ -30,21 +30,6 @@ Transform:
   m_Father: {fileID: 3730881238071396151}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4470464444632940461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 271998941112314829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbba3e632e5a00a42ab77e2ce30ff04e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 5
-  regularHat: {fileID: 671013910724204920}
-  IsActive: 0
 --- !u!137 &316638331810517570
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -99,6 +84,21 @@ SkinnedMeshRenderer:
     m_Center: {x: 1.2907015, y: 0.041555673, z: 0}
     m_Extent: {x: 0.42036593, y: 0.51022696, z: 0}
   m_DirtyAABB: 0
+--- !u!114 &4470464444632940461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 271998941112314829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbba3e632e5a00a42ab77e2ce30ff04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 5
+  regularHat: {fileID: 671013910724204920}
+  IsActive: 0
 --- !u!114 &3892132838879027740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +294,7 @@ MonoBehaviour:
   - {fileID: 3730881239739163512}
   - {fileID: 3730881238910287927}
   - {fileID: 3730881238116053769}
+  hitColor: {r: 0.9716981, g: 0.5271004, b: 0.5271004, a: 1}
 --- !u!114 &3813647324867125640
 MonoBehaviour:
   m_ObjectHideFlags: 0
