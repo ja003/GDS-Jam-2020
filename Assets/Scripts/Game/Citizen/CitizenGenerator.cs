@@ -9,6 +9,7 @@ public class CitizenGenerator : GameBehaviour
 
 	public void InitialSpawn()
 	{
+		Debug.Log("InitialSpawn");
 		foreach(CitizenSpawnpoint spawnpoint in game.MapController.InitialCitizenSpawnpoints)
 		{
 			SpawnCitizens(spawnpoint.Count, spawnpoint.transform.position);
