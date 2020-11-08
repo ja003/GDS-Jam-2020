@@ -37,20 +37,26 @@ public class HudEnergy : MonoBehaviour
 			if (i < NumOfHp)
 			{
 				if (imageHps[i])
-					imageHps[i].enabled = true;
-			}
-			else if (i < NumOfHp - 0.6f)
-			{
-				if (imageHps[i])
 				{
 					imageHps[i].enabled = true;
-					imageHps[i].GetComponent<CanvasGroup>().alpha = 0.5f;
+					imageHps[i].GetComponent<CanvasGroup>().alpha = 1f;
 				}
 			}
 			else
 			{
-				if(imageHps[i])
+				if (imageHps[i])
+				{
+					if(i == NumOfHp + 0.5f)
+					{
+						if (imageHps[i - 1])
+						{
+							imageHps[i - 1].enabled = true;
+							imageHps[i - 1].GetComponent<CanvasGroup>().alpha = 0.5f;
+						}
+					}
+
 					imageHps[i].enabled = false;
+				}
 			}
 		}
 	}
