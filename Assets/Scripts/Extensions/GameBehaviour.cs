@@ -130,4 +130,15 @@ public class GameBehaviour : MonoBehaviour
 			return _button;
 		}
 	}
+
+	private RectTransform _rectTransform;
+	protected RectTransform rectTransform
+	{
+		get
+		{
+			if(_rectTransform == null)
+				_rectTransform = GetComponent<RectTransform>();
+			return _rectTransform;
+		}
+	}
 }

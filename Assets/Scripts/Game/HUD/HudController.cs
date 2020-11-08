@@ -8,6 +8,7 @@ public class HudController : MonoBehaviour
     [SerializeField] public HudEnergy Energy;
     [SerializeField] public Curtain Curtain;
     [SerializeField] public IntroController Intro;
-    
+    [SerializeField] public TrueNewsPopup TrueNewsPopup;
 
+    [SerializeField] public Canvas Canvas;
 }
