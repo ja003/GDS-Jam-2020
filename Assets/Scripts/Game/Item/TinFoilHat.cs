@@ -6,7 +6,9 @@ using UnityEngine;
 public class TinFoilHat : GameBehaviour
 {
     [SerializeField] float duration = 5;
-    public bool IsActive;
+	[SerializeField] private GameObject regularHat;
+	public bool IsActive;
+	
 
     private void Awake()
     {
@@ -15,14 +17,18 @@ public class TinFoilHat : GameBehaviour
 
     public void Activate()
     {
-        spriteRend.enabled = true;
+		regularHat.SetActive(false);
+
+		skinMeshRend.enabled = true;
         IsActive = true;
         DoInTime(Deactivate, duration);
     }
 
     private void Deactivate()
     {
-        spriteRend.enabled = false;
+		skinMeshRend.enabled = false;
         IsActive = false;
-    }
+
+		regularHat.SetActive(true);
+	}
 }

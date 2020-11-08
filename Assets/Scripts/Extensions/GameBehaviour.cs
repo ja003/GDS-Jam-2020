@@ -44,6 +44,17 @@ public class GameBehaviour : MonoBehaviour
 		}
 	}
 
+	private SkinnedMeshRenderer _skinMeshRend;
+	protected SkinnedMeshRenderer skinMeshRend
+	{
+		get
+		{
+			if (_skinMeshRend == null)
+				_skinMeshRend = GetComponent<SkinnedMeshRenderer>();
+			return _skinMeshRend;
+		}
+	}
+
 	private Rigidbody2D _rb;
 	protected Rigidbody2D rb
 	{
