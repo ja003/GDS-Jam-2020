@@ -11,7 +11,7 @@ public class Game : CSingleton<Game>
     [SerializeField] public CitizenGenerator CitizenGenerator;
     [SerializeField] public EndGameController EndGame;
 	[SerializeField] public SoundManager SoundManager;
-
+	[SerializeField] public TimeController TimeController;
 
 	[SerializeField] public HudController HUD;
 

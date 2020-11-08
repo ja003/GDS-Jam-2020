@@ -34,7 +34,7 @@ public class SoundManager : GameBehaviour
 	public void TurnOnSounds()
 	{
 		bPlay = true;
-		//PlayMusic();
+		PlayMusic();
 	}
 
 	public enum ESound
@@ -61,7 +61,7 @@ public class SoundManager : GameBehaviour
 	public void PlayMusic()
 	{
 		AS_Ambient.Play();
-		//AS_Music.Play();
+		AS_Music.Play();
 	}
 
 	private void Update()
