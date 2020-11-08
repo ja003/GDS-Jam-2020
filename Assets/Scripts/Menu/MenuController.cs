@@ -13,7 +13,6 @@ public class MenuController : MonoBehaviour
 
 	[SerializeField] LevelButton btnLevel1;
 	[SerializeField] LevelButton btnLevel2;
-	[SerializeField] LevelButton btnLevel3;
 
 
 	[SerializeField] List<GameObject> levelButtons;
@@ -29,11 +28,9 @@ public class MenuController : MonoBehaviour
 
 		btnLevel1.SetEnabled(true);
 		btnLevel2.SetEnabled(lvl1Done);
-		btnLevel3.SetEnabled(lvl2Done);
 
 		btnLevel1.AddAction(() => SelectLevel(1));
 		btnLevel2.AddAction(() => SelectLevel(2));
-		btnLevel3.AddAction(() => SelectLevel(3));
 	}
 
 

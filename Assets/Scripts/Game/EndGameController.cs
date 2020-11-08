@@ -40,6 +40,12 @@ public class EndGameController : GameBehaviour
 
 	public void EndGame(bool pWin)
 	{
+		if(GameEnded)
+		{
+			Debug.Log("gamew already ended");
+			return;
+		}
+
 		GameEnded = true;
 		Debug.Log("WIN = " + pWin);
 

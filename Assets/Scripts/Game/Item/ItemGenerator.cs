@@ -10,6 +10,7 @@ public class ItemGenerator : GameBehaviour
 
 	private void Awake()
 	{
+		DoInTime(() => TryGenerateItem(EMapItem.GSource, true), 2);
 		DoInTime(GenerateItem, 1);
 	}
 
@@ -24,7 +25,7 @@ public class ItemGenerator : GameBehaviour
 		DoInTime(GenerateItem, generateFrequency);
 	}
 
-	private void TryGenerateItem(EMapItem pItem)
+	private void TryGenerateItem(EMapItem pItem, bool pForce = false)
 	{
 		Vector3? pos = game.MapController.GetItemSpawnPosition(pItem);
 
@@ -32,7 +33,7 @@ public class ItemGenerator : GameBehaviour
 			return;
 
 		//todo: define chance to generate
-		if(!debug_AlwayGenerate && Random.Range(0, 1f) > 0.5f)
+		if(!debug_AlwayGenerate && !pForce && Random.Range(0, 1f) > 0.5f)
 		{
 			return;
 		}
