@@ -16,10 +16,15 @@ public class ThinkBubble : GameBehaviour
 		SetReaction(EReaction.None);
 	}
 
+	EReaction CurrentReaction;
+
 	public void SetReaction(EReaction pReaction, float pDuration = -1)
 	{
 		spriteRend.enabled = pReaction != EReaction.None;
 		content.sprite = GetSprite(pReaction);
+		if(CurrentReaction == pReaction)
+			return;
+		CurrentReaction = pReaction;
 
 		if(pDuration > 0)
 			DoInTime(() => SetReaction(EReaction.None), pDuration);
@@ -37,6 +42,9 @@ public class ThinkBubble : GameBehaviour
 				return spriteWhat;
 			case EReaction.Coffee:
 				return spriteCoffee;
+			case EReaction.Build:
+				Debug.LogError("TODO: build icon");
+				return spriteCoffee;
 		}
 		return null;
 	}
@@ -48,5 +56,6 @@ public enum EReaction
 	None,
 	Trigger,
 	What,
-	Coffee
+	Coffee,
+	Build
 }

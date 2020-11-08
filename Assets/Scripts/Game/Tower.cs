@@ -61,6 +61,8 @@ public class Tower : GameBehaviour, IDamageHandler
 			return;
 		}
 
+		pWorker.ThinkBubble.SetReaction(EReaction.Build);
+
 		CheckUpgradeProgress(pWorker);
 	}
 
@@ -69,35 +71,37 @@ public class Tower : GameBehaviour, IDamageHandler
 
 	float progress;
 
-	private void CheckUpgradeProgress(Player pWorker)
+	private void CheckUpgradeProgress(Player pPlayer)
 	{
-		if(Vector2.Distance(transform.position, pWorker.transform.position) > MAX_UPG_DISTANCE)
+		if(Vector2.Distance(transform.position, pPlayer.transform.position) > MAX_UPG_DISTANCE)
 		{
-			OnUpgradeFailed();
+			OnUpgradeFailed(pPlayer);
 			return;
 		}
+		pPlayer.ThinkBubble.SetReaction(EReaction.Build);
 
 		const float check_frequency = 0.1f;
 		progress += check_frequency;
 		Debug.Log("CheckUpgradeProgress " + progress);
 		if(progress > upgradeTime)
 		{
-			OnUpgradeComplete(pWorker);
+			OnUpgradeComplete(pPlayer);
 			return;
 		}
 
-		DoInTime(() => CheckUpgradeProgress(pWorker), check_frequency);
+		DoInTime(() => CheckUpgradeProgress(pPlayer), check_frequency);
 	}
 
-	private void OnUpgradeComplete(Player pWorker)
+	private void OnUpgradeComplete(Player pPlayer)
 	{
 		Debug.Log("Upgrade complete");
 		progress = 0;
 		State.SetHealth(100);
 		State.IncreaseLevel();
-		pWorker?.Inventory.OnTowerUpgraded();
+		pPlayer?.Inventory.OnTowerUpgraded();
 		OnUpgradeCompleteA?.Invoke();
 		game.CitizenGenerator.SpawnCitizens(spawnOnUpgradeCount);
+		pPlayer.ThinkBubble.SetReaction(EReaction.None);
 	}
 
 	//private void AddHealth(float pIncrement)
@@ -111,11 +115,12 @@ public class Tower : GameBehaviour, IDamageHandler
 	//	health = Mathf.Clamp(health, 0, 100);
 	//}
 
-	private void OnUpgradeFailed()
+	private void OnUpgradeFailed(Player pPlayer)
 	{
 		Debug.Log("Worker is too far from tower");
 		progress = 0;
 		//OnUpgradeFail?.Invoke();
+		pPlayer.ThinkBubble.SetReaction(EReaction.None);
 	}
 
 	private void DoParticleEffect()
