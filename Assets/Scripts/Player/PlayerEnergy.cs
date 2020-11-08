@@ -27,7 +27,8 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 		Energy = pEnergy;
 		Energy = Mathf.Clamp(Energy, 0, 100);
 		Debug.Log($"Energy left = {Energy}");
-		game.HUD.Energy.energyText.text = $"{Energy}/100!";
+		//game.HUD.Energy.energyText.text = $"{Energy}/100!";
+		game.HUD.Energy.NumOfHp = Energy * 0.1f;
 
 		if(Energy < 1)
 		{
