@@ -133,6 +133,10 @@ public class CitizenBrain : GameBehaviour
 
 		bubble.SetReaction(reaction);
 
+		if (reaction == EReaction.Trigger)
+			game.SoundManager.PlaySound(SoundManager.ESound.eAgro);
+
+
 		DoInTime(Evaluate, evaluateFrequency);
 	}
 

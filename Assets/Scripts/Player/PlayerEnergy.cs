@@ -39,7 +39,5 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 	internal void AddEnergy(float pIncrement)
 	{
 		SetEnergy(Energy + pIncrement);
-
-		Game.Instance.SoundManager.PlaySound(SoundManager.ESound.eHeal);
 	}
 }

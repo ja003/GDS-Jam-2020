@@ -365,7 +365,19 @@ MonoBehaviour:
   AS_Ambient: {fileID: 912243919}
   AS_Music: {fileID: 1654828947}
   attackPlayer: {fileID: 8300000, guid: 0e70220e54ed5ec4c9e087fd11e08a7e, type: 3}
+  coffee_loop: {fileID: 8300000, guid: 7e05cf11f8eff4e49a9be04c414f3227, type: 3}
+  agro:
+  - {fileID: 8300000, guid: d4c340dc2546fcb4dbd645965f692926, type: 3}
+  - {fileID: 8300000, guid: 6d95b72ea56fd664fbec7e503e77c132, type: 3}
+  - {fileID: 8300000, guid: 0b23ff4f62f391d4db8b6a9ad5d9bf1b, type: 3}
+  - {fileID: 8300000, guid: 7c9a68167349a254bb6c05b4ad611db2, type: 3}
+  - {fileID: 8300000, guid: 0e1a330e6900d724f8d2bce069b411a3, type: 3}
+  - {fileID: 8300000, guid: 2cbeff739f9782c4fa6e9f69c7ef3900, type: 3}
+  - {fileID: 8300000, guid: 6d04822cbf82ec34cb1d6c30670eca17, type: 3}
+  - {fileID: 8300000, guid: f394d20d90b81864eb7231a727df0244, type: 3}
+  - {fileID: 8300000, guid: e5614573f292bb848b5bf870f9a10cb4, type: 3}
   mixer: {fileID: -3782065154340013299, guid: 978eef7407428d742882bb6013baa37a, type: 2}
+  sources: []
 --- !u!4 &55732309
 Transform:
   m_ObjectHideFlags: 0
