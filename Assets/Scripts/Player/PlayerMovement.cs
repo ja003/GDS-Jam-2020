@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : PlayerBehaviour
 {
 	[SerializeField]
-	private float speed = 1.0f;
+	public float speed = 1.0f;
 
 	private Animator AN_Animator;
 	private Rigidbody2D RB_Body;

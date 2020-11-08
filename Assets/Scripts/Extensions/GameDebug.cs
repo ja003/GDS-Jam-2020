@@ -10,6 +10,8 @@ public class GameDebug : MonoBehaviour
 
 	}
 
+	Player player => Game.Instance.Player;
+
 #if UNITY_EDITOR
 	// Update is called once per frame
 	void Update()
@@ -27,13 +29,36 @@ public class GameDebug : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.T))
 		{
-			var player = FindObjectOfType<Player>();
+			
 			Game.Instance.ItemManager.UseItem(player, EMapItem.GSource);
 		}
+		if(Input.GetKeyDown(KeyCode.O))
+		{
+			var towers = FindObjectsOfType<Tower>();
+			foreach(var t in towers)
+			{
+				t.debug_InstaUpgrade();
+			}
+		}
+		if(Input.GetKeyDown(KeyCode.L))
+		{
+			var towers = FindObjectsOfType<Tower>();
+			foreach(var t in towers)
+			{
+				t.OnReceivedDamage(10);
+			}
+		}
+
+
 
 		if(Input.GetKeyDown(KeyCode.C))
 		{
 			Game.Instance.CitizenGenerator.SpawnCitizen();
+		}
+
+		if(Input.GetKeyDown(KeyCode.I))
+		{
+			player.Energy.AddEnergy(-10);
 		}
 	}
 #endif

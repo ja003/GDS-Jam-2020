@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameBehaviour : MonoBehaviour
 {
@@ -29,6 +30,25 @@ public class GameBehaviour : MonoBehaviour
 	protected float GetDistanceTo(Vector3 pPosition)
 	{
 		return Vector3.Distance(transform.position, pPosition);
+	}
+
+	/// <summary>
+	/// Instantly sets alpha to image color property
+	/// </summary>
+	protected void SetAlpha(float pAlpha)
+	{
+		image.enabled = true;
+		image.color = new Color(image.color.r, image.color.g, image.color.b, pAlpha);
+	}
+
+	/// <summary>
+	/// Animates alpha value of image over given duration and calls action on complete
+	/// </summary>
+	protected void SetAlpha(float pValue, float pDuration, Action pOnComplete)
+	{
+		LeanTween.alpha(image.rectTransform, pValue, pDuration)
+					.setIgnoreTimeScale(true)
+					.setOnComplete(pOnComplete);
 	}
 
 	/// SELF-GETTERS
@@ -86,6 +106,28 @@ public class GameBehaviour : MonoBehaviour
 			if(_boxCollider2D == null)
 				_boxCollider2D = GetComponent<BoxCollider2D>();
 			return _boxCollider2D;
+		}
+	}
+
+	private Image _image;
+	protected Image image
+	{
+		get
+		{
+			if(_image == null)
+				_image = GetComponent<Image>();
+			return _image;
+		}
+	}
+
+	private Button _button;
+	protected Button button
+	{
+		get
+		{
+			if(_button == null)
+				_button = GetComponent<Button>();
+			return _button;
 		}
 	}
 }

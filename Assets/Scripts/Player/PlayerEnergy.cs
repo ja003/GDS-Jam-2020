@@ -19,7 +19,7 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 
 	public void OnReceivedDamage(float pDamage)
 	{
-		SetEnergy(Energy - pDamage);
+		AddEnergy(-pDamage);
 	}
 
 	private void SetEnergy(float pEnergy)
@@ -32,12 +32,12 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 
 		if(Energy < 1)
 		{
-			Debug.Log("Player is tired of this shit. TODO: END");
+			game.EndGame.EndGame(false);
 		}
 	}
 
-	internal void AddEnergy(float healAmount)
+	internal void AddEnergy(float pIncrement)
 	{
-		SetEnergy(Energy + healAmount);
+		SetEnergy(Energy + pIncrement);
 	}
 }

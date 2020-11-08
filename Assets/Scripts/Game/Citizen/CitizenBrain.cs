@@ -23,8 +23,10 @@ public class CitizenBrain : GameBehaviour
 	[SerializeField] ThinkBubble bubble;
 
 	protected const float REACH_DIST_TOLLERANCE = 0.3f;
-
-
+	[SerializeField] float MIN_SPEED = 0.5f;
+	[SerializeField] float MAX_SPEED = 3f;
+	[SerializeField] float REGEN_FREQUENCY = 10f;
+	[SerializeField] float REGEN_AMOUNT = 0.2f;
 	bool idle;
 	bool attack;
 
@@ -66,6 +68,14 @@ public class CitizenBrain : GameBehaviour
 	private void Awake()
 	{
 		DoInTime(Evaluate, evaluateFrequency);
+
+		DoInTime(Regenerate, REGEN_FREQUENCY);
+	}
+
+	private void Regenerate()
+	{
+		AddSpeed(REGEN_AMOUNT);
+		DoInTime(Regenerate, REGEN_FREQUENCY);
 	}
 
 	private void Evaluate()
@@ -183,11 +193,18 @@ public class CitizenBrain : GameBehaviour
 	float lastTimeBroadcasted;
 	Tower lastTowerNoticed;
 
-	internal void OnBroadcast(Tower pOrigin)
+	internal void OnBroadcast(Tower pOrigin, float pSpeedDecrease)
 	{
-		Debug.Log($"{transform.name} got broadcasted by {pOrigin.transform.name}. OUCH!");
+		//Debug.Log($"{transform.name} got broadcasted by {pOrigin.transform.name}. OUCH!");
 		lastTowerNoticed = pOrigin;
 		lastTimeBroadcasted = Time.time;
+
+		AddSpeed(-pSpeedDecrease);
+	}
+
+	private void AddSpeed(float pValue)
+	{
+		movement.speed = Mathf.Clamp(movement.speed + pValue, MIN_SPEED, MAX_SPEED);
 	}
 
 	private void Attack(IDamageHandler pTarget)
