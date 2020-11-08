@@ -17,4 +17,12 @@ public class HudInventory : MonoBehaviour
     {
         return itemIcons[(int)pItem - 1];
     }
+
+    internal void OnUseItem(int pIndex, bool pUseResult)
+    {
+        Debug.Log($"TODO: Play OnUseItem sound {pUseResult}" + itemIcons[pIndex].name);
+        Animator animator = itemIcons[pIndex].GetComponent<Animator>();
+        animator.Rebind();
+        animator.Play(pUseResult ? "useOK" : "useFail");
+    }
 }
