@@ -2,64 +2,55 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour
 {
     [SerializeField] Button btnStart;
-    [SerializeField] Button btnSettings;
-    [SerializeField] Button btnAbout;
 	[SerializeField] Button btnExit;
 
-	[SerializeField] Button btnBack;
+	[SerializeField] LevelButton btnLevel1;
+	[SerializeField] LevelButton btnLevel2;
+	[SerializeField] LevelButton btnLevel3;
 
 
-	[SerializeField] MenuMap map;
-	[SerializeField] MenuSettings settings;
-	[SerializeField] GameObject about;
-
+	[SerializeField] List<GameObject> levelButtons;
 
 	private void Awake()
     {
-		btnBack.onClick.AddListener(OnBtnBack);
-		btnBack.gameObject.SetActive(false);
-
-		btnStart.onClick.AddListener(OnBtnStart);
-		btnSettings.onClick.AddListener(OnBtnSettings);
-		btnAbout.onClick.AddListener(OnBtnAbout);
+		btnStart.onClick.AddListener(() => StartCoroutine(OnBtnStart()));
 		btnExit.onClick.AddListener(OnBtnExit);
+
+		bool lvl1Done = SaveDataController.IsLevelDone(1);
+		bool lvl2Done = SaveDataController.IsLevelDone(2);
+		bool lvl3Done = SaveDataController.IsLevelDone(3);
+
+		btnLevel1.SetEnabled(true);
+		btnLevel2.SetEnabled(lvl1Done);
+		btnLevel3.SetEnabled(lvl2Done);
+
+		btnLevel1.AddAction(() => SelectLevel(1));
+		btnLevel2.AddAction(() => SelectLevel(2));
+		btnLevel3.AddAction(() => SelectLevel(3));
 	}
 
-	private void OnBtnBack()
+
+	private void SelectLevel(int pLevel)
 	{
-		btnBack.gameObject.SetActive(false);
-
-		map.gameObject.SetActive(false);
-		settings.gameObject.SetActive(false);
-		about.gameObject.SetActive(false);
-
-		gameObject.SetActive(true);
+		Debug.Log("SelectLevel " + pLevel);
+		Director.Instance.SelectedLevel = pLevel;
+		SceneManager.LoadScene("Game");
 	}
 
-	private void OnBtnStart()
+	private IEnumerator OnBtnStart()
 	{
-		gameObject.SetActive(false);
-		map.gameObject.SetActive(true);
-		btnBack.gameObject.SetActive(true);
-	}
-
-	private void OnBtnSettings()
-	{
-		gameObject.SetActive(false);
-		settings.gameObject.SetActive(true);
-		btnBack.gameObject.SetActive(true);
-	}
-
-	private void OnBtnAbout()
-	{
-		gameObject.SetActive(false);
-		about.gameObject.SetActive(true);
-		btnBack.gameObject.SetActive(true);
+		foreach(var lvlBtn in levelButtons)
+		{
+			lvlBtn.SetActive(true);
+			yield return new WaitForSeconds(0.2f);
+		}
 	}
 
 	private void OnBtnExit()

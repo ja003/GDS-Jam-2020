@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Anima2D;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +30,10 @@ public class CitizenBrain : GameBehaviour
 	[SerializeField] float REGEN_AMOUNT = 0.2f;
 	bool idle;
 	bool attack;
+
+	[SerializeField] List<SpriteMeshInstance> bodySprites;
+	[SerializeField] Color hitColor;
+
 
 	private void Update()
 	{
@@ -206,6 +211,17 @@ public class CitizenBrain : GameBehaviour
 		lastTimeBroadcasted = Time.time;
 
 		AddSpeed(-pSpeedDecrease);
+
+		SetColor(hitColor);
+		DoInTime(() => SetColor(Color.white), 0.1f);
+	}
+
+	private void SetColor(Color pColor)
+	{
+		foreach(var bs in bodySprites)
+		{
+			bs.color = pColor;
+		}
 	}
 
 	private void AddSpeed(float pValue)

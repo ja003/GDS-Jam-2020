@@ -16,6 +16,8 @@ public class Tower : GameBehaviour, IDamageHandler
 
 	[SerializeField] bool debug_level1;
 
+	[SerializeField] List<Animator> waveLevels;
+
 
 	private void Awake()
 	{
@@ -42,6 +44,12 @@ public class Tower : GameBehaviour, IDamageHandler
 		{
 			CitizenBrain citizen = c.transform.GetComponent<CitizenBrain>();
 			citizen.OnBroadcast(this, speedDecrease);
+		}
+
+		for(int i = 0; i < State.Level; i++)
+		{
+			waveLevels[i].Rebind();
+			waveLevels[i].Play("wave");
 		}
 
 		DoInTime(Broadcast, broadcastFrequency);

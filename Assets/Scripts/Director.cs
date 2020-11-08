@@ -5,5 +5,5 @@ using UnityEngine;
 [CSingletion("Singletons/P_Director", true)]
 public class Director : CSingleton<Director>
 {
-	public int RegionIndex { get; internal set; }
+	public int SelectedLevel { get; internal set; }
 }
