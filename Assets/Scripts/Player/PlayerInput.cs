@@ -6,6 +6,9 @@ public class PlayerInput : PlayerBehaviour
 {
 	private void FixedUpdate()
 	{
+		if(player.Energy.Energy < 1)
+			return;
+
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
 		player.Movement.Move(h, v);
@@ -13,6 +16,9 @@ public class PlayerInput : PlayerBehaviour
 
 	private void Update()
 	{
+		if(player.Energy.Energy < 1)
+			return;
+
 		if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.E))
 		{
 			player.Inventory.UseItem(player, 1);

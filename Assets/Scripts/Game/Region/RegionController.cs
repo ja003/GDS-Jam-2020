@@ -8,6 +8,7 @@ public class RegionController : GameBehaviour
 {
 	[SerializeField] GameRegion prefab_Region1;
 	[SerializeField] GameRegion prefab_Region2;
+	[SerializeField] GameRegion prefab_Region3;
 
 	public GameRegion Region;
 
@@ -17,7 +18,7 @@ public class RegionController : GameBehaviour
 
 	public void Init()
 	{
-		if(director.RegionIndex == 0)
+		if(director.SelectedLevel == 0)
 		{
 			game.HUD.Intro.gameObject.SetActive(true);
 		}
@@ -28,8 +29,20 @@ public class RegionController : GameBehaviour
 		}
 		else
 		{
-			Debug.Log("TODO: load prefab map " + Director.Instance.RegionIndex);
-			Region = Instantiate(prefab_Region1, transform);
+			Debug.Log("TODO: load prefab map " + director.SelectedLevel);
+			switch(director.SelectedLevel)
+			{
+				case 1:
+					Region = Instantiate(prefab_Region1, transform);
+					break;
+				case 2:
+					Region = Instantiate(prefab_Region2, transform);
+					break;
+				case 3:
+					Region = Instantiate(prefab_Region3, transform);
+					break;
+			}
+
 		}
 		//hack: spawnpoint are not registered yet. wait a few sec
 		DoInTime(game.CitizenGenerator.InitialSpawn, 0.5f);

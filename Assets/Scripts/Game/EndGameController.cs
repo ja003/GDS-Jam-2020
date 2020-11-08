@@ -39,6 +39,9 @@ public class EndGameController : GameBehaviour
 	public void EndGame(bool pWin)
 	{
 		Debug.Log("WIN = " + pWin);
+
+		SaveDataController.OnLevelWin(director.SelectedLevel);
+
 		game.HUD.Curtain.SetFade(true, GoToMenu, 3);
 	}
 

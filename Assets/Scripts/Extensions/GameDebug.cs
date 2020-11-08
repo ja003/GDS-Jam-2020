@@ -58,7 +58,7 @@ public class GameDebug : MonoBehaviour
 
 		if(Input.GetKeyDown(KeyCode.I))
 		{
-			player.Energy.AddEnergy(-10);
+			player.Energy.OnReceivedDamage(10);
 		}
 	}
 #endif

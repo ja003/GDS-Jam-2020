@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Anima2D;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine;
 public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 {
 	public float Energy = 100;
+
+	[SerializeField] List<SpriteMeshInstance> bodySprites;
 
 	private void Awake()
 	{
@@ -20,6 +23,16 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 	public void OnReceivedDamage(float pDamage)
 	{
 		AddEnergy(-pDamage);
+		SetColor(Color.red);
+		DoInTime(() => SetColor(Color.white), 0.1f);
+	}
+
+	private void SetColor(Color pColor)
+	{
+		foreach(var bs in bodySprites)
+		{
+			bs.color = pColor;
+		}
 	}
 
 	private void SetEnergy(float pEnergy)
