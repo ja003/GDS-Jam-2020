@@ -43,6 +43,7 @@ public class ItemManager : GameBehaviour
 				else
 				{
 					Debug.Log("No tower near");
+					return false;
 				}
 				return true;
 

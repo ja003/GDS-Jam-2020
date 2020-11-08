@@ -87,13 +87,17 @@ public class Inventory : GameBehaviour
 	public bool UseItem(Player pPlayer, int pIndex)
 	{
 		itemsCount.TryGetValue((EMapItem)pIndex, out int count);
+		int indexInHud = pIndex - 1;
 		if(count == 0)
 		{
 			Debug.Log("Cant use item " + (EMapItem)pIndex);
+			game.HUD.Inventory.OnUseItem(indexInHud, false);
 			return false;
 		}
 
-		return game.ItemManager.UseItem(pPlayer, (EMapItem)pIndex);
+		bool useResult = game.ItemManager.UseItem(pPlayer, (EMapItem)pIndex);
+		game.HUD.Inventory.OnUseItem(indexInHud, useResult);
+		return useResult;
 
 	}
 
