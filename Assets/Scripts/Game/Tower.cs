@@ -64,6 +64,7 @@ public class Tower : GameBehaviour, IDamageHandler
 		pWorker.ThinkBubble.SetReaction(EReaction.Build);
 
 		CheckUpgradeProgress(pWorker);
+		game.SoundManager.PlaySound(SoundManager.ESound.eUpgradeStarted);
 	}
 
 	public Action OnUpgradeCompleteA;
@@ -102,6 +103,8 @@ public class Tower : GameBehaviour, IDamageHandler
 		OnUpgradeCompleteA?.Invoke();
 		game.CitizenGenerator.SpawnCitizens(spawnOnUpgradeCount);
 		pPlayer.ThinkBubble.SetReaction(EReaction.None);
+
+		game.SoundManager.PlaySound(SoundManager.ESound.eUpgradeDone);
 	}
 
 	//private void AddHealth(float pIncrement)
@@ -121,6 +124,8 @@ public class Tower : GameBehaviour, IDamageHandler
 		progress = 0;
 		//OnUpgradeFail?.Invoke();
 		pPlayer.ThinkBubble.SetReaction(EReaction.None);
+
+		game.SoundManager.PlaySound(SoundManager.ESound.eUpgradeFailed);
 	}
 
 	private void DoParticleEffect()

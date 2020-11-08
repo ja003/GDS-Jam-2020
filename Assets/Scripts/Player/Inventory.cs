@@ -59,6 +59,8 @@ public class Inventory : GameBehaviour
 			itemsCount.Add(pItem, pCount);
 		}
 
+		Game.Instance.SoundManager.PlaySound(SoundManager.ESound.eCollect);
+
 		game.HUD.Inventory.OnItemCountChanged(pItem, itemsCount[pItem]);
 
 		return true;
