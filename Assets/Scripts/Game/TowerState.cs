@@ -33,6 +33,8 @@ public class TowerState : GameBehaviour
 	public int Level;
 	public float health = 100;
 
+	[SerializeField] Color hitColor;
+
 	public void SetHealth(float pHealth)
 	{
 		pHealth = Mathf.Clamp(pHealth, 0, 100);
@@ -57,6 +59,12 @@ public class TowerState : GameBehaviour
 
 	internal void AddHealth(float pIncrement)
 	{
+		if(pIncrement < 0)
+		{
+			towerSR.color = hitColor;
+			DoInTime(() => { towerSR.color = Color.white; }, 0.1f);
+		}
+
 		SetHealth(health + pIncrement);
 	}
 

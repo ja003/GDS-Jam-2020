@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 2402709721061991301}
-  sightRange: 5
+  sightRange: 3
   attackRange: 1
   damage: 5
   timeToForgetBroadcast: 5

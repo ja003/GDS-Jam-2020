@@ -178,6 +178,9 @@ public class CitizenBrain : GameBehaviour
 			return false;
 
 		Player player = playerHit.transform.GetComponent<Player>();
+		Debug.DrawLine(transform.position, (player.transform.position - transform.position).normalized * sightRange);
+
+
 		//only target player if he is carrying a G
 		bool hasG = player.Inventory.HasItem(EMapItem.GSource);
 		if(!hasG)
