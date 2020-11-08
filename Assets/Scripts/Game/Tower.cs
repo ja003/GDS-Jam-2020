@@ -72,7 +72,6 @@ public class Tower : GameBehaviour, IDamageHandler
 		pWorker.ThinkBubble.SetReaction(EReaction.Build);
 
 		CheckUpgradeProgress(pWorker);
-		game.SoundManager.PlaySound(SoundManager.ESound.eUpgradeStarted);
 		game.SoundManager.PlaySound(SoundManager.ESound.eBuild);
 	}
 
@@ -113,7 +112,7 @@ public class Tower : GameBehaviour, IDamageHandler
 		game.CitizenGenerator.SpawnCitizens(spawnOnUpgradeCount);
 		pPlayer.ThinkBubble.SetReaction(EReaction.None);
 
-		game.SoundManager.PlaySound(SoundManager.ESound.eUpgradeDone);
+		game.SoundManager.PlaySound(SoundManager.ESound.eTowerUp);
 	}
 
 	//private void AddHealth(float pIncrement)

@@ -370,6 +370,7 @@ MonoBehaviour:
   build_loop: {fileID: 8300000, guid: 82ebb735ed0d02a4ba5af579f7d4be1a, type: 3}
   news_throw: {fileID: 8300000, guid: f7501c41d4d13e540be547c687ec69d5, type: 3}
   cannot_use: {fileID: 8300000, guid: 6c43fb53e1c41114885bfc5b47fc0c5c, type: 3}
+  towerUp: {fileID: 8300000, guid: 031c15ff12e17bb4eaeaaf776c5ae846, type: 3}
   agro:
   - {fileID: 8300000, guid: d4c340dc2546fcb4dbd645965f692926, type: 3}
   - {fileID: 8300000, guid: 6d95b72ea56fd664fbec7e503e77c132, type: 3}
