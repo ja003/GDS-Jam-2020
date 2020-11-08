@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 8297678901889047106}
+  Type: 0
 --- !u!50 &-6729100695943082471
 Rigidbody2D:
   serializedVersion: 4
@@ -145,9 +146,9 @@ SortingGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3548038168253171737}
   m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: 1436480131
+  m_SortingLayer: 1
+  m_SortingOrder: 100
 --- !u!114 &3699737363040400922
 MonoBehaviour:
   m_ObjectHideFlags: 0

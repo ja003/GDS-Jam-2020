@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 810248741851556073}
   - component: {fileID: 810248741851556079}
   - component: {fileID: 810248741851556078}
+  - component: {fileID: 5596761685445187966}
   m_Layer: 13
   m_Name: P_ThinkBubble
   m_TagString: Untagged
@@ -70,9 +71,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -106017329
+  m_SortingLayer: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 6e542d0fa71d4e24283a183a19a1f38b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -100,6 +101,17 @@ MonoBehaviour:
   spriteWhat: {fileID: 21300000, guid: b95d6e56619a10e49ba9abd29c5032bf, type: 3}
   spriteCoffee: {fileID: 21300000, guid: b9226ffd9671fab4bb0f41fbc72c4546, type: 3}
   content: {fileID: 810248743568297691}
+--- !u!210 &5596761685445187966
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810248741851556072}
+  m_Enabled: 1
+  m_SortingLayerID: 1436480131
+  m_SortingLayer: 1
+  m_SortingOrder: 100
 --- !u!1 &810248743568297669
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,9 +180,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -106017329
+  m_SortingLayer: 3
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 9b261c0fe83e4b048a8211afcb4df8cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

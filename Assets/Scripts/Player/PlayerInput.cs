@@ -13,7 +13,7 @@ public class PlayerInput : PlayerBehaviour
 
 	private void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.Alpha1))
+		if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.E))
 		{
 			player.Inventory.UseItem(player, 1);
 		}
