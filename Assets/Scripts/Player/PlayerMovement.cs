@@ -23,6 +23,7 @@ public class PlayerMovement : PlayerBehaviour
 	private void FixedUpdate()
 	{
 		AN_Animator.SetFloat("SpeedH", Math.Abs(RB_Body.velocity.x + RB_Body.velocity.y));
+		AN_Animator.SetFloat("SpeedV", RB_Body.velocity.y);
 	}
 
 	public void Move(float pMoveH, float pMoveV)
