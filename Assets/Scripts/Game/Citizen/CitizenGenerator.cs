@@ -7,6 +7,20 @@ public class CitizenGenerator : GameBehaviour
 {
 	[SerializeField] GameObject prefab_Citizen;
 
+	[SerializeField] float spawnFrequency = 15;
+
+	private void Awake()
+	{
+		DoInTime(PeriodicalSpawn, spawnFrequency);
+	}
+
+	private void PeriodicalSpawn()
+	{
+		Debug.Log("PeriodicalSpawn");
+		SpawnCitizen();
+		DoInTime(PeriodicalSpawn, spawnFrequency);
+	}
+
 	public void InitialSpawn()
 	{
 		Debug.Log("InitialSpawn");

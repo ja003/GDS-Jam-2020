@@ -443,12 +443,12 @@ PrefabInstance:
     - target: {fileID: 810248741851556073, guid: e061d9f1a0b69174ea8468a224ebcfa5,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 810248741851556073, guid: e061d9f1a0b69174ea8468a224ebcfa5,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 810248741851556073, guid: e061d9f1a0b69174ea8468a224ebcfa5,
         type: 3}

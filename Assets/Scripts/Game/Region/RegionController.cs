@@ -41,6 +41,9 @@ public class RegionController : GameBehaviour
 				case 3:
 					Region = Instantiate(prefab_Region3, transform);
 					break;
+				default:
+					Region = Instantiate(prefab_Region1, transform);
+					break;
 			}
 
 		}

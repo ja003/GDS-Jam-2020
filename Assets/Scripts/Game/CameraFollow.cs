@@ -15,6 +15,12 @@ public class CameraFollow : GameBehaviour
 
 	private void Start()
 	{
+		//DoInTime(Init, 0.5f);
+		Init();
+	}
+
+	private void Init()
+	{
 		xMin = mapBounds.bounds.min.x;
 		xMax = mapBounds.bounds.max.x;
 		yMin = mapBounds.bounds.min.y;
@@ -23,6 +29,7 @@ public class CameraFollow : GameBehaviour
 		camOrthsize = mainCam.orthographicSize;
 		cameraRatio = (xMax + camOrthsize) / 2.0f;
 	}
+
 	// Update is called once per frame
 	void FixedUpdate()
 	{
