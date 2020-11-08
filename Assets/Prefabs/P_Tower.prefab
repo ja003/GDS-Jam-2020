@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145190875}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.96, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8682648666306345134}
@@ -68,9 +68,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1436480131
+  m_SortingLayer: 1
+  m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: a87b3e3f97a06c146984b80df47cde31, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &614464528472086974
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2577676131719057820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.28, z: 0}
+  m_LocalPosition: {x: 0, y: 3.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4868105996629662450}
@@ -781,7 +781,6 @@ GameObject:
   - component: {fileID: 8682648666306345134}
   - component: {fileID: 8682648666306345133}
   - component: {fileID: 3176264849693763450}
-  - component: {fileID: 8292585182308337840}
   m_Layer: 12
   m_Name: P_Tower
   m_TagString: Tower
@@ -797,7 +796,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8682648666306345135}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.45, y: -0.37, z: 0}
+  m_LocalPosition: {x: -6.45, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2145190877}
@@ -822,6 +821,7 @@ MonoBehaviour:
   spawnOnUpgradeCount: 5
   broadcastRange: 10
   broadcastFrequency: 1
+  speedDecrease: 0.2
   debug_level1: 0
   BroadCastEnabled: 0
 --- !u!61 &3176264849693763450
@@ -837,7 +837,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1892469}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -850,17 +850,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.38228974, y: 0.38526392}
   m_EdgeRadius: 0
---- !u!210 &8292585182308337840
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8682648666306345135}
-  m_Enabled: 1
-  m_SortingLayerID: 1436480131
-  m_SortingLayer: 1
-  m_SortingOrder: 100
 --- !u!1 &8818761083355024320
 GameObject:
   m_ObjectHideFlags: 0
