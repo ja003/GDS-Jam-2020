@@ -8,6 +8,8 @@ public class EndGameController : GameBehaviour
 {
 	List<Tower> towers = new List<Tower>();
 
+	public bool GameEnded;
+
 	private void Awake()
 	{
 		game.HUD.Curtain.SetFade(false, null, 3);
@@ -38,15 +40,16 @@ public class EndGameController : GameBehaviour
 
 	public void EndGame(bool pWin)
 	{
+		GameEnded = true;
 		Debug.Log("WIN = " + pWin);
 
 		SaveDataController.OnLevelWin(director.SelectedLevel);
 
-		game.HUD.Curtain.SetFade(true, GoToMenu, 3);
+		game.HUD.Curtain.SetFade(true, () => game.HUD.EndScreen.Show(pWin), 3);
 	}
 
-	private void GoToMenu()
-	{
-		SceneManager.LoadScene("Menu");
-	}
+	//private void GoToMenu()
+	//{
+	//	SceneManager.LoadScene("Menu");
+	//}
 }

@@ -6,7 +6,7 @@ public class PlayerInput : PlayerBehaviour
 {
 	private void FixedUpdate()
 	{
-		if(player.Energy.Energy < 1)
+		if(!IsInputEnabled())
 			return;
 
 		float h = Input.GetAxis("Horizontal");
@@ -14,9 +14,14 @@ public class PlayerInput : PlayerBehaviour
 		player.Movement.Move(h, v);
 	}
 
+	private bool IsInputEnabled()
+	{
+		return player.Energy.Energy > 1 && !game.EndGame.GameEnded;
+	}
+
 	private void Update()
 	{
-		if(player.Energy.Energy < 1)
+		if(!IsInputEnabled())
 			return;
 
 		if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.E))

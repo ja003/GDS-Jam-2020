@@ -15,9 +15,4 @@ public class TimeController : GameBehaviour
 	{
 		return timeStart + game.MapController.Region.Time - Time.time;
 	}
-
-	private void Update()
-	{
-		Debug.Log($"Time left = {GetTimeLeft()}");
-	}
 }

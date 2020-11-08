@@ -37,6 +37,9 @@ public class CitizenBrain : GameBehaviour
 
 	private void Update()
 	{
+		if(game.EndGame.GameEnded)
+			return;
+
 		//if(debug_target)
 		//	attackTarget = debug_target;
 		if(attackTarget != null)
