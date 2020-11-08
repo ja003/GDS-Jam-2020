@@ -7,5 +7,7 @@ public class HudController : MonoBehaviour
     [SerializeField] public HudInventory Inventory;
     [SerializeField] public HudEnergy Energy;
     [SerializeField] public Curtain Curtain;
+    [SerializeField] public IntroController Intro;
+    
 
 }

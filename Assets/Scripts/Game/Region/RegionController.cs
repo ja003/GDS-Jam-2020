@@ -17,6 +17,11 @@ public class RegionController : GameBehaviour
 
 	public void Init()
 	{
+		if(director.RegionIndex == 0)
+		{
+			game.HUD.Intro.gameObject.SetActive(true);
+		}
+
 		if(Region != null)
 		{
 			Debug.Log("DEBUG: region in scene");
@@ -26,7 +31,8 @@ public class RegionController : GameBehaviour
 			Debug.Log("TODO: load prefab map " + Director.Instance.RegionIndex);
 			Region = Instantiate(prefab_Region1, transform);
 		}
-		game.CitizenGenerator.InitialSpawn();
+		//hack: spawnpoint are not registered yet. wait a few sec
+		DoInTime(game.CitizenGenerator.InitialSpawn, 0.5f);
 	}
 
 
