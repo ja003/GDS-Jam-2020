@@ -330,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zones: []
   MapBounds: {fileID: 2451023035137221875}
+  Time: 200
 --- !u!1 &9003024033314086417
 GameObject:
   m_ObjectHideFlags: 0
