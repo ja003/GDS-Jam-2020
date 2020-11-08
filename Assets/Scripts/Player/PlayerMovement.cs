@@ -11,7 +11,8 @@ public class PlayerMovement : PlayerBehaviour
 	private Animator AN_Animator;
 	private Rigidbody2D RB_Body;
 
-	[SerializeField] private ThinkBubble thinkBuble;
+	[SerializeField] private ThinkBubble thinkBubleToFlip;
+	[SerializeField] private GameObject thinkBubleToMove;
 
 	public bool FacingLeft = true;
 	public bool FacingUp = true;
@@ -26,6 +27,16 @@ public class PlayerMovement : PlayerBehaviour
 	{
 		AN_Animator.SetFloat("SpeedH", Math.Abs(RB_Body.velocity.x + RB_Body.velocity.y));
 		AN_Animator.SetFloat("SpeedV", RB_Body.velocity.y);
+	}
+
+	private void Update()
+	{
+		if (thinkBubleToMove)
+		{
+			Vector3 bublePosition = thinkBubleToMove.transform.position;
+			bublePosition = transform.position;
+			thinkBubleToMove.transform.position = bublePosition;
+		}
 	}
 
 	public void Move(float pMoveH, float pMoveV)
@@ -50,11 +61,11 @@ public class PlayerMovement : PlayerBehaviour
 		theScale.x *= -1;
 		transform.localScale = theScale;
 
-		if (thinkBuble)
+		if (thinkBubleToFlip)
 		{
-			Vector3 bubleScale = thinkBuble.transform.localScale;
+			Vector3 bubleScale = thinkBubleToFlip.transform.localScale;
 			bubleScale.x *= -1;
-			thinkBuble.transform.localScale = bubleScale;
+			thinkBubleToFlip.transform.localScale = bubleScale;
 		}
 	}
 
