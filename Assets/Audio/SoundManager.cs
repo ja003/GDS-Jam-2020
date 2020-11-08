@@ -8,8 +8,16 @@ public class SoundManager : GameBehaviour
 	[SerializeField] private AudioSource AS_Ambient;
 	[SerializeField] private AudioSource AS_Music;
 	public AudioClip attackPlayer;
+	public AudioClip collect;
 	public AudioClip coffee_loop;
-	public List<AudioClip> agro; 
+	public AudioClip build_loop;
+	public AudioClip news_throw;
+	public AudioClip cannot_use;
+	public List<AudioClip> agro;
+	public List<AudioClip> citizen_destroy;
+	public List<AudioClip> citizen_news;
+
+
 	public AudioMixerGroup mixer;
 
 	public List<AudioSource> sources;
@@ -34,10 +42,15 @@ public class SoundManager : GameBehaviour
 		eSpawn,
 		eHurt,
 		eCoffee,
+		eBuild,
 		eUpgradeStarted,
 		eUpgradeDone,
 		eUpgradeFailed,
 		eAgro,
+		eNewsThrow,
+		eCitizenDestroy,
+		eCitizenNews,
+		eCannotUse,
 
 	}
 	ESound eSound;
@@ -80,6 +93,9 @@ public class SoundManager : GameBehaviour
 			case ESound.eCoffee:
 				StopAudio(coffee_loop);
 				break;
+			case ESound.eBuild:
+				StopAudio(build_loop);
+				break;
 			case ESound.eUpgradeStarted:
 				break;
 			case ESound.eUpgradeDone:
@@ -102,6 +118,7 @@ public class SoundManager : GameBehaviour
 		switch (sound)
 		{
 			case ESound.eCollect:
+				PlayAudio(collect);
 				break;
 			case ESound.eDenial:
 				break;
@@ -112,6 +129,9 @@ public class SoundManager : GameBehaviour
 			case ESound.eCoffee:
 				PlayAudio(coffee_loop, true);
 				break;
+			case ESound.eBuild:
+				PlayAudio(build_loop, true);
+				break;
 			case ESound.eUpgradeStarted:
 				break;
 			case ESound.eUpgradeDone:
@@ -119,8 +139,19 @@ public class SoundManager : GameBehaviour
 			case ESound.eUpgradeFailed:
 				break;
 			case ESound.eAgro:
-				
 				PlayAudio(agro[Random.Range(0, 9)]);
+				break;
+			case ESound.eNewsThrow:
+				PlayAudio(news_throw);
+				break;
+			case ESound.eCitizenDestroy:
+				PlayAudio(citizen_destroy[Random.Range(0, 8)]);
+				break;
+			case ESound.eCitizenNews:
+				PlayAudio(citizen_news[Random.Range(0, 16)]);
+				break;
+			case ESound.eCannotUse:
+				PlayAudio(cannot_use);
 				break;
 			default:
 				break;

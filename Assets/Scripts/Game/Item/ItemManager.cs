@@ -43,6 +43,8 @@ public class ItemManager : GameBehaviour
 				else
 				{
 					Debug.Log("No tower near");
+					game.SoundManager.PlaySound(SoundManager.ESound.eCannotUse);
+
 					return false;
 				}
 				return true;
@@ -59,6 +61,7 @@ public class ItemManager : GameBehaviour
 				if(pPlayer.TinFoilHat.IsActive)
 				{
 					Debug.Log("Tinfoil hat is already active");
+					game.SoundManager.PlaySound(SoundManager.ESound.eCannotUse);
 					return false;
 				}
 				pPlayer.TinFoilHat.Activate();

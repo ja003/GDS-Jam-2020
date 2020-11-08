@@ -19,6 +19,7 @@ public class PlayerEnergy : PlayerBehaviour, IDamageHandler
 
 	public void OnReceivedDamage(float pDamage)
 	{
+		//game.SoundManager.PlaySound(SoundManager.ESound.eCitizenDestroy);
 		AddEnergy(-pDamage);
 	}
 

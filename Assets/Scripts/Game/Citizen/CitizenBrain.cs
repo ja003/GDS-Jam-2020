@@ -155,6 +155,8 @@ public class CitizenBrain : GameBehaviour
 			{
 				//bubble.SetReaction(ECitizenReaction.What);
 				targetPos = trueNews.GetPosition();
+				game.SoundManager.PlaySound(SoundManager.ESound.eCitizenNews);
+
 				return true;
 			}
 		}

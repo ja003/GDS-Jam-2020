@@ -13,6 +13,7 @@ public class TrueNews : GameBehaviour
 		transform.position = pPlayer.ItemSpawnPos.position;
 		DoInTime(() => Destroy(gameObject), duration);
 
+		game.SoundManager.PlaySound(SoundManager.ESound.eNewsThrow);
 		game.HUD.TrueNewsPopup.OnThrow(this);
 	}
 

@@ -92,6 +92,7 @@ public class Inventory : GameBehaviour
 		{
 			Debug.Log("Cant use item " + (EMapItem)pIndex);
 			game.HUD.Inventory.OnUseItem(indexInHud, false);
+			game.SoundManager.PlaySound(SoundManager.ESound.eCannotUse);
 			return false;
 		}
 

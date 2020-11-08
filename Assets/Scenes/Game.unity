@@ -365,7 +365,11 @@ MonoBehaviour:
   AS_Ambient: {fileID: 912243919}
   AS_Music: {fileID: 1654828947}
   attackPlayer: {fileID: 8300000, guid: 0e70220e54ed5ec4c9e087fd11e08a7e, type: 3}
+  collect: {fileID: 8300000, guid: baa94b7f158bec14790b7cb6dcb03b91, type: 3}
   coffee_loop: {fileID: 8300000, guid: 7e05cf11f8eff4e49a9be04c414f3227, type: 3}
+  build_loop: {fileID: 8300000, guid: 82ebb735ed0d02a4ba5af579f7d4be1a, type: 3}
+  news_throw: {fileID: 8300000, guid: f7501c41d4d13e540be547c687ec69d5, type: 3}
+  cannot_use: {fileID: 8300000, guid: 6c43fb53e1c41114885bfc5b47fc0c5c, type: 3}
   agro:
   - {fileID: 8300000, guid: d4c340dc2546fcb4dbd645965f692926, type: 3}
   - {fileID: 8300000, guid: 6d95b72ea56fd664fbec7e503e77c132, type: 3}
@@ -376,6 +380,32 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6d04822cbf82ec34cb1d6c30670eca17, type: 3}
   - {fileID: 8300000, guid: f394d20d90b81864eb7231a727df0244, type: 3}
   - {fileID: 8300000, guid: e5614573f292bb848b5bf870f9a10cb4, type: 3}
+  citizen_destroy:
+  - {fileID: 8300000, guid: 7866f943ef625804685ab08d7493fd6b, type: 3}
+  - {fileID: 8300000, guid: df366be47295c9d49a37cddb0e9f0d6a, type: 3}
+  - {fileID: 8300000, guid: 5ca7cc21f6efa3f488895ecb0a20a448, type: 3}
+  - {fileID: 8300000, guid: b94875737d9396e4aaa0c98d5ccd6747, type: 3}
+  - {fileID: 8300000, guid: 1bef1e2517489dd4b8fcb6ee109cbcc8, type: 3}
+  - {fileID: 8300000, guid: 98b5bf14f18e0f94392beec357b0fc1e, type: 3}
+  - {fileID: 8300000, guid: 2b5120fe4862a19458cb39752f88dc97, type: 3}
+  - {fileID: 8300000, guid: ed6b8955bfee1a14289eff5353c03c87, type: 3}
+  citizen_news:
+  - {fileID: 8300000, guid: 99d9b66d03858594cadbf2bab87dd79c, type: 3}
+  - {fileID: 8300000, guid: 20606d090d28bb04f9dcc7b5a544bef0, type: 3}
+  - {fileID: 8300000, guid: 3e4984b902b3aaa4798f98ec1c32c901, type: 3}
+  - {fileID: 8300000, guid: 1970994eb6939b044b5ca758ccc3cb49, type: 3}
+  - {fileID: 8300000, guid: 8e4ec5b7ed7252b4b82e49336977cacd, type: 3}
+  - {fileID: 8300000, guid: a9d76ffa55a09b249ba7ed1d0b231a47, type: 3}
+  - {fileID: 8300000, guid: 9503075f26ec3ac41aa68609f549e0c1, type: 3}
+  - {fileID: 8300000, guid: 176fdf98a2b24444caac7435dee14411, type: 3}
+  - {fileID: 8300000, guid: a909324d7d2253346a5383763347169e, type: 3}
+  - {fileID: 8300000, guid: 5df8a748d59bb2143bed851f7a4ab8f6, type: 3}
+  - {fileID: 8300000, guid: 7c96831d5614b884495aa01f5b7cebfa, type: 3}
+  - {fileID: 8300000, guid: 9b0ed4caca3f5bd4d9ea097217825292, type: 3}
+  - {fileID: 8300000, guid: 41a2dcc23c30d6f49a223e0c2f833aa9, type: 3}
+  - {fileID: 8300000, guid: 5d336e9c95b8009429399c27e0b7b26d, type: 3}
+  - {fileID: 8300000, guid: 445ad76cf741bc1449bf30ae3e2dcdd5, type: 3}
+  - {fileID: 8300000, guid: 1794aa956ec6a374e84dbd9c731bf5b5, type: 3}
   mixer: {fileID: -3782065154340013299, guid: 978eef7407428d742882bb6013baa37a, type: 2}
   sources: []
 --- !u!4 &55732309

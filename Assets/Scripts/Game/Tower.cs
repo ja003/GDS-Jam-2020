@@ -65,6 +65,7 @@ public class Tower : GameBehaviour, IDamageHandler
 
 		CheckUpgradeProgress(pWorker);
 		game.SoundManager.PlaySound(SoundManager.ESound.eUpgradeStarted);
+		game.SoundManager.PlaySound(SoundManager.ESound.eBuild);
 	}
 
 	public Action OnUpgradeCompleteA;
@@ -166,6 +167,7 @@ public class Tower : GameBehaviour, IDamageHandler
 
 	public void OnReceivedDamage(float pDamage)
 	{
+		game.SoundManager.PlaySound(SoundManager.ESound.eCitizenDestroy);
 		State.AddHealth(-pDamage);
 	}
 
