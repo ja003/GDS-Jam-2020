@@ -14,6 +14,7 @@ public class SoundManager : GameBehaviour
 	public AudioClip news_throw;
 	public AudioClip cannot_use;
 	public AudioClip towerUp;
+	public AudioClip towerDown;
 
 	public List<AudioClip> agro;
 	public List<AudioClip> citizen_destroy;
@@ -54,6 +55,7 @@ public class SoundManager : GameBehaviour
 		eCitizenNews,
 		eCannotUse,
 		eTowerUp,
+		eTowerDown,
 
 	}
 	ESound eSound;
@@ -158,6 +160,9 @@ public class SoundManager : GameBehaviour
 				break;
 			case ESound.eTowerUp:
 				PlayAudio(towerUp);
+				break;
+			case ESound.eTowerDown:
+				PlayAudio(towerDown);
 				break;
 			default:
 				break;

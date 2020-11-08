@@ -437,6 +437,7 @@ MonoBehaviour:
   news_throw: {fileID: 8300000, guid: f7501c41d4d13e540be547c687ec69d5, type: 3}
   cannot_use: {fileID: 8300000, guid: 6c43fb53e1c41114885bfc5b47fc0c5c, type: 3}
   towerUp: {fileID: 8300000, guid: 031c15ff12e17bb4eaeaaf776c5ae846, type: 3}
+  towerDown: {fileID: 0}
   agro:
   - {fileID: 8300000, guid: d4c340dc2546fcb4dbd645965f692926, type: 3}
   - {fileID: 8300000, guid: 6d95b72ea56fd664fbec7e503e77c132, type: 3}
@@ -4407,11 +4408,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 487601848499503499, guid: 978eef7407428d742882bb6013baa37a,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ad35f5dd653e541409a27a2562e99cbe, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 15d39113a2dcd534b8df98d830edb1d5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4507,18 +4508,6 @@ Transform:
   m_Father: {fileID: 55732309}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1663427086 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2451023035137221874, guid: d944f3fa0cb1de64992d78395b6bede7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1501854918}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6e6d05ca931194bb43ac2cb0279dc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1678678525
 GameObject:
   m_ObjectHideFlags: 0
