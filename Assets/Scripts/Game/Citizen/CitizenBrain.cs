@@ -204,7 +204,7 @@ public class CitizenBrain : GameBehaviour
 
 	private bool WasBrodcastedRecently()
 	{
-		return lastTowerNoticed && Time.time - lastTimeBroadcasted < timeToForgetBroadcast;
+		return lastTowerNoticed && lastTowerNoticed.State.Level < 5 && Time.time - lastTimeBroadcasted < timeToForgetBroadcast;
 	}
 
 	float lastTimeBroadcasted;

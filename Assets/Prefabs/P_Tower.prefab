@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: {fileID: 1928583034695837297}
   upgradeTime: 1
-  spawnOnUpgradeCount: 3
+  spawnOnUpgradeCount: 2
   broadcastRange: 10
   broadcastFrequency: 2
   speedDecrease: 0.2

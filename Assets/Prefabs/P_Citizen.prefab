@@ -224,7 +224,7 @@ MonoBehaviour:
   movement: {fileID: 2402709721061991301}
   sightRange: 3
   attackRange: 1
-  damage: 5
+  damage: 3
   timeToForgetBroadcast: 5
   debug_target: {fileID: 0}
   debug_idle: 0

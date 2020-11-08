@@ -6,6 +6,7 @@ public class ItemGenerator : GameBehaviour
 {
 	[SerializeField] MapItem mapItemPrefab;
 	[SerializeField] bool debug_AlwayGenerate;
+	[SerializeField] float generateFrequency = 5;
 
 	private void Awake()
 	{
@@ -14,15 +15,13 @@ public class ItemGenerator : GameBehaviour
 
 	private void GenerateItem()
 	{
-		EMapItem type = EMapItem.GSource;
-
 		foreach(EMapItem item in System.Enum.GetValues(typeof(EMapItem)))
 		{
 			TryGenerateItem(item);
 		}
 
-		
-		DoInTime(GenerateItem, 2);
+
+		DoInTime(GenerateItem, generateFrequency);
 	}
 
 	private void TryGenerateItem(EMapItem pItem)
@@ -33,7 +32,7 @@ public class ItemGenerator : GameBehaviour
 			return;
 
 		//todo: define chance to generate
-		if(!debug_AlwayGenerate && Random.Range(0,1f) > 0.5f)
+		if(!debug_AlwayGenerate && Random.Range(0, 1f) > 0.5f)
 		{
 			return;
 		}

@@ -6,6 +6,7 @@ public class ItemManager : GameBehaviour
 {
 	[SerializeField] Sprite mapIcon_gSource;
 	[SerializeField] Sprite mapIcon_TrueNews;
+	[SerializeField] Sprite mapIcon_TinFoilHat;
 
 	[SerializeField] public TrueNews prefab_TrueNews;
 
@@ -21,7 +22,7 @@ public class ItemManager : GameBehaviour
 			case EMapItem.TrueNews:
 				return mapIcon_TrueNews;
 			case EMapItem.TinFoilHat:
-				break;
+				return mapIcon_TinFoilHat;
 			default:
 				break;
 		}
