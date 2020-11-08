@@ -100,6 +100,7 @@ MonoBehaviour:
   spriteTrigger: {fileID: 21300000, guid: 9b261c0fe83e4b048a8211afcb4df8cb, type: 3}
   spriteWhat: {fileID: 21300000, guid: b95d6e56619a10e49ba9abd29c5032bf, type: 3}
   spriteCoffee: {fileID: 21300000, guid: b9226ffd9671fab4bb0f41fbc72c4546, type: 3}
+  spriteBuild: {fileID: 21300000, guid: db7af2876a4149245ad78c0fb5eb9f6b, type: 3}
   content: {fileID: 810248743568297691}
 --- !u!210 &5596761685445187966
 SortingGroup:

@@ -8,6 +8,7 @@ public class ThinkBubble : GameBehaviour
 	[SerializeField] Sprite spriteTrigger;
 	[SerializeField] Sprite spriteWhat;
 	[SerializeField] Sprite spriteCoffee;
+	[SerializeField] Sprite spriteBuild;
 
 	[SerializeField] SpriteRenderer content;
 
@@ -43,8 +44,7 @@ public class ThinkBubble : GameBehaviour
 			case EReaction.Coffee:
 				return spriteCoffee;
 			case EReaction.Build:
-				Debug.LogError("TODO: build icon");
-				return spriteCoffee;
+				return spriteBuild;
 		}
 		return null;
 	}

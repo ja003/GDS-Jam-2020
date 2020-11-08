@@ -50,7 +50,7 @@ public class Tower : GameBehaviour, IDamageHandler
 	internal void debug_InstaUpgrade()
 	{
 		Debug.Log("debug_InstaUpgrade ");
-		OnUpgradeComplete(null);
+		OnUpgradeComplete(game.Player);
 	}
 
 	public void StartUpgrade(Player pWorker)

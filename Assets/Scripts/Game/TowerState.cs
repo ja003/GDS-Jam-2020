@@ -35,12 +35,14 @@ public class TowerState : GameBehaviour
 
 	public void SetHealth(float pHealth)
 	{
-		health = Mathf.Clamp(pHealth, 0, 100);
-		bar1.color = new Color(1, 1, 1, GetAlpha(pHealth, 10));
-		bar2.color = new Color(1, 1, 1, GetAlpha(pHealth, 40));
-		bar3.color = new Color(1, 1, 1, GetAlpha(pHealth, 60));
-		bar4.color = new Color(1, 1, 1, GetAlpha(pHealth, 80));
-		bar5.color = new Color(1, 1, 1, GetAlpha(pHealth, 90));
+		pHealth = Mathf.Clamp(pHealth, 0, 100);
+		health = pHealth;
+
+		bar1.color = new Color(1, 1, 1, GetAlpha(health, 10));
+		bar2.color = new Color(1, 1, 1, GetAlpha(health, 40));
+		bar3.color = new Color(1, 1, 1, GetAlpha(health, 60));
+		bar4.color = new Color(1, 1, 1, GetAlpha(health, 80));
+		bar5.color = new Color(1, 1, 1, GetAlpha(health, 90));
 
 		if(health <= 0)
 		{
@@ -60,11 +62,11 @@ public class TowerState : GameBehaviour
 
 	internal void SetLevel(int pLevel)
 	{
-		Level = Mathf.Clamp(pLevel, 0, 5);
-		levelSR.sprite = GetLevelSprite(pLevel);
-
-		Debug.Log("SetLevel " + Level);
+		pLevel = Mathf.Clamp(pLevel, 0, 5);
+		Level = pLevel;
+		Debug.Log("SetLevel " + pLevel);
 		towerSR.sprite = GetTowerSprite(Level);
+		levelSR.sprite = GetLevelSprite(Level);
 
 		tower.BroadCastEnabled = Level > 0;
 		if(Level == 1)
@@ -109,6 +111,7 @@ public class TowerState : GameBehaviour
 			case 5:
 				return level5;
 		}
+		Debug.LogError("Cant get level " + pLevel);
 		return null;
 	}
 
