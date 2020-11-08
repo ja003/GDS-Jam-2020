@@ -109,7 +109,8 @@ public class Tower : GameBehaviour, IDamageHandler
 		State.IncreaseLevel();
 		pPlayer?.Inventory.OnTowerUpgraded();
 		OnUpgradeCompleteA?.Invoke();
-		game.CitizenGenerator.SpawnCitizens(spawnOnUpgradeCount);
+		if(State.Level < 4)
+			game.CitizenGenerator.SpawnCitizens(spawnOnUpgradeCount);
 		pPlayer.ThinkBubble.SetReaction(EReaction.None);
 
 		game.SoundManager.PlaySound(SoundManager.ESound.eTowerUp);

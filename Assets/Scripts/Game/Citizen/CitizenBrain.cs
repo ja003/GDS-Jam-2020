@@ -237,7 +237,7 @@ public class CitizenBrain : GameBehaviour
 
 	private void Attack(IDamageHandler pTarget)
 	{
-		Debug.Log("Attack " + pTarget);
+		//Debug.Log("Attack " + pTarget);
 		pTarget.OnReceivedDamage(damage);
 	}
 }

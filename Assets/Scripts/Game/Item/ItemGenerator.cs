@@ -25,6 +25,8 @@ public class ItemGenerator : GameBehaviour
 		DoInTime(GenerateItem, generateFrequency);
 	}
 
+	Dictionary<EMapItem, MapItem> lastGenerated = new Dictionary<EMapItem, MapItem>();
+
 	private void TryGenerateItem(EMapItem pItem, bool pForce = false)
 	{
 		Vector3? pos = game.MapController.GetItemSpawnPosition(pItem);
@@ -32,16 +34,26 @@ public class ItemGenerator : GameBehaviour
 		if(pos == null)
 			return;
 
+		if(!lastGenerated.ContainsKey(pItem) || (lastGenerated.ContainsKey(pItem) && lastGenerated[pItem] == null))
+			pForce = true;
+
 		//todo: define chance to generate
 		if(!debug_AlwayGenerate && !pForce && Random.Range(0, 1f) > 0.5f)
 		{
 			return;
 		}
 
+		
+
 		//Debug.Log($"Generate item {type} at {pos}");
 
 		MapItem itemInstance = Instantiate(mapItemPrefab, (Vector3)pos, Quaternion.identity);
 		itemInstance.transform.parent = transform;
 		itemInstance.Init(pItem);
+
+		if(lastGenerated.ContainsKey(pItem))
+			lastGenerated[pItem] = itemInstance;
+		else
+			lastGenerated.Add(pItem, itemInstance);
 	}
 }

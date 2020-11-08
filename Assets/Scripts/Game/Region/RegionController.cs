@@ -18,7 +18,7 @@ public class RegionController : GameBehaviour
 
 	public void Init()
 	{
-		if(director.SelectedLevel == 0)
+		if(director.SelectedLevel == 1)
 		{
 			game.HUD.Intro.gameObject.SetActive(true);
 		}
