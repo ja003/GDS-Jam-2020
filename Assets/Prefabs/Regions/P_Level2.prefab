@@ -2214,12 +2214,12 @@ PrefabInstance:
     - target: {fileID: 6777464482998851621, guid: eccbde9fc55525640829c88093c70b2f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.75
+      value: 4.91
       objectReference: {fileID: 0}
     - target: {fileID: 6777464482998851621, guid: eccbde9fc55525640829c88093c70b2f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 6777464482998851621, guid: eccbde9fc55525640829c88093c70b2f,
         type: 3}
@@ -2594,12 +2594,12 @@ PrefabInstance:
     - target: {fileID: 6543823007639358818, guid: 646c947479ecfa64285b0c4b9f918d45,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.8799999
+      value: 4.54
       objectReference: {fileID: 0}
     - target: {fileID: 6543823007639358818, guid: 646c947479ecfa64285b0c4b9f918d45,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.52
+      value: -4.92
       objectReference: {fileID: 0}
     - target: {fileID: 6543823007639358818, guid: 646c947479ecfa64285b0c4b9f918d45,
         type: 3}
@@ -3780,7 +3780,7 @@ PrefabInstance:
     - target: {fileID: 6547861615149957940, guid: a503126999ae644439d9c9e25dd47424,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.8260002
+      value: 2.53
       objectReference: {fileID: 0}
     - target: {fileID: 6547861615149957940, guid: a503126999ae644439d9c9e25dd47424,
         type: 3}
@@ -3911,6 +3911,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_Fence (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547861615149957941, guid: a503126999ae644439d9c9e25dd47424,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547861615149957943, guid: a503126999ae644439d9c9e25dd47424,
         type: 3}
@@ -4351,6 +4356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_Fence (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6547861615149957941, guid: a503126999ae644439d9c9e25dd47424,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6547861615149957943, guid: a503126999ae644439d9c9e25dd47424,
         type: 3}
