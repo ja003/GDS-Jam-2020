@@ -1,0 +1,381 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6275571939323260143
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e715ea371f114f4a8d2584ad476634d, type: 3}
+  m_Name: tinfoil_hat_Data
+  m_EditorClassIdentifier: 
+  m_PivotPoint: {x: 25.5, y: 21}
+  m_Vertices:
+  - {x: 30, y: 42}
+  - {x: 15, y: 42}
+  - {x: 0, y: 23}
+  - {x: 0, y: 4}
+  - {x: 1, y: 0}
+  - {x: 47, y: 0}
+  - {x: 51, y: 5}
+  - {x: 51, y: 20}
+  - {x: 41, y: 37}
+  m_BoneWeights:
+  - weight0: 1
+    weight1: 0
+    weight2: 0
+    weight3: 0
+    boneIndex0: 1
+    boneIndex1: 0
+    boneIndex2: 0
+    boneIndex3: 0
+  - weight0: 0.98339975
+    weight1: 0.016600221
+    weight2: 0
+    weight3: 0
+    boneIndex0: 1
+    boneIndex1: 0
+    boneIndex2: 0
+    boneIndex3: 0
+  - weight0: 0.5942974
+    weight1: 0.40570256
+    weight2: 0
+    weight3: 0
+    boneIndex0: 1
+    boneIndex1: 0
+    boneIndex2: 0
+    boneIndex3: 0
+  - weight0: 0.81730115
+    weight1: 0.18269888
+    weight2: 0
+    weight3: 0
+    boneIndex0: 0
+    boneIndex1: 1
+    boneIndex2: 0
+    boneIndex3: 0
+  - weight0: 0.8343693
+    weight1: 0.16563071
+    weight2: 0
+    weight3: 0
+    boneIndex0: 0
+    boneIndex1: 1
+    boneIndex2: 0
+    boneIndex3: 0
+  - weight0: 0.8816844
+    weight1: 0.11831557
+    weight2: 0
+    weight3: 0
+    boneIndex0: 0
+    boneIndex1: 1
+    boneIndex2: 0
+    boneIndex3: 0
+  - weight0: 0.8021675
+    weight1: 0.19783255
+    weight2: 0
+    weight3: 0
+    boneIndex0: 0
+    boneIndex1: 1
+    boneIndex2: 0
+    boneIndex3: 0
+  - weight0: 0.59318763
+    weight1: 0.40681237
+    weight2: 0
+    weight3: 0
+    boneIndex0: 1
+    boneIndex1: 0
+    boneIndex2: 0
+    boneIndex3: 0
+  - weight0: 0.97801304
+    weight1: 0.02198699
+    weight2: 0
+    weight3: 0
+    boneIndex0: 1
+    boneIndex1: 0
+    boneIndex2: 0
+    boneIndex3: 0
+  m_Edges:
+  - index1: 0
+    index2: 1
+  - index1: 1
+    index2: 2
+  - index1: 2
+    index2: 3
+  - index1: 3
+    index2: 4
+  - index1: 4
+    index2: 5
+  - index1: 5
+    index2: 6
+  - index1: 6
+    index2: 7
+  - index1: 7
+    index2: 8
+  - index1: 8
+    index2: 0
+  m_Holes: []
+  m_Indices: 030000000200000005000000020000000100000000000000050000000400000003000000070000000600000005000000000000000800000002000000080000000700000002000000050000000200000007000000
+  m_BindPoses:
+  - bindPose:
+      e00: 0.0025254975
+      e01: 1.9999985
+      e02: 0
+      e03: 1.2909536
+      e10: -1.9999985
+      e11: 0.0025254975
+      e12: 0
+      e13: 0.04173328
+      e20: 0
+      e21: 0
+      e22: 1.0000001
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    boneLength: 1.1400003
+    path: Torso/Head
+    name: Head
+    color: {r: 1, g: 0, b: 0, a: 1}
+    zOrder: 0
+  - bindPose:
+      e00: 0.0025254164
+      e01: 1.9999985
+      e02: 0
+      e03: 0.17095385
+      e10: -1.9999985
+      e11: 0.0025254164
+      e12: 0
+      e13: 0.041733544
+      e20: 0
+      e21: 0
+      e22: 1.0000001
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    boneLength: 0.63
+    path: Torso/Head/Hat
+    name: Hat
+    color: {r: 1, g: 0.75, b: 0, a: 1}
+    zOrder: 0
+  m_Blendshapes: []
+--- !u!43 &-651772099626945848
+Mesh:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: tinfoil_hat
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 21
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 9
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.255, y: 0.21, z: 0}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose:
+  - e00: 0.0025254975
+    e01: 1.9999985
+    e02: 0
+    e03: 1.2909536
+    e10: -1.9999985
+    e11: 0.0025254975
+    e12: 0
+    e13: 0.04173328
+    e20: 0
+    e21: 0
+    e22: 1.0000001
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  - e00: 0.0025254164
+    e01: 1.9999985
+    e02: 0
+    e03: 0.17095385
+    e10: -1.9999985
+    e11: 0.0025254164
+    e12: 0
+    e13: 0.041733544
+    e20: 0
+    e21: 0
+    e22: 1.0000001
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB:
+  - m_Min: {x: 0.8703352, y: -0.46867037, z: 0}
+    m_Max: {x: 1.7106881, y: 0.5517833, z: 0}
+  - m_Min: {x: -0.24966453, y: -0.4686701, z: 0}
+    m_Max: {x: 0.59106714, y: 0.5517836, z: 0}
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 030002000500020001000000050004000300070006000500000008000200080007000200050002000700
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 9
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 1
+      offset: 0
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 2
+      offset: 0
+      format: 0
+      dimension: 4
+    - stream: 2
+      offset: 16
+      format: 10
+      dimension: 4
+    m_DataSize: 736
+    _typelessdata: ec51383d3d0a573e000000000000000000000000000080bf0000803f30277db300000000000080bf3d0ad7bd3d0a573e000000000000000000000000000080bf0000803f0000000000000000000080bf5c8f82be0ad7a33c000000000000000000000000000080bf0000803ff2f81a3100000000000080bf5c8f82be7b142ebe000000000000000000000000000080bf0000803f2cfc833200000000000080bf48e17abe3d0a57be000000000000000000000000000080bf0000803f0000000000000000000080bff6285c3e3d0a57be000000000000000000000000000080bf0000803fd7281bb100000000000080bf5c8f823e0ad723be000000000000000000000000000080bf0000803f0200e03300000000000080bf5c8f823e0ad723bc000000000000000000000000000080bf0000803fa0e31fb200000000000080bf52b81e3e0ad7233e000000000000000000000000000080bf0000803fbba2acb200000000000080bf00000000000000009796163f0000803f9796963e0000803f00000000c3300c3f00000000310cc33da1a0a03c00000000eceb6b3f000000000000803f3dcff33d0000803f3dcff33ececd4d3f1986613f00000000000000000000803f0000000000000000000000000100000000000000000000000000000016c07b3f30fd873c000000000000000001000000000000000000000000000000e023183f3fb8cf3e000000000000000001000000000000000000000000000000a63a513f6a153b3e0000000000000000000000000100000000000000000000003a99553f199b293e00000000000000000000000001000000000000000000000012b6613f6f4ff23d000000000000000000000000010000000000000000000000d95a4d3f9e944a3e00000000000000000000000001000000000000000000000025db173fb649d03e000000000000000001000000000000000000000000000000105f7a3f0f1eb43c000000000000000001000000000000000000000000000000
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.255, y: 0.21, z: 0}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
+  m_Name: tinfoil_hat
+  m_EditorClassIdentifier: 
+  m_ApiVersion: 4
+  m_Sprite: {fileID: 21300000, guid: 01045b07afc371d4e8342facc04decaa, type: 3}
+  m_SharedMesh: {fileID: -651772099626945848}
+  m_SharedMaterials: []

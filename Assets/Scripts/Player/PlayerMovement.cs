@@ -11,6 +11,8 @@ public class PlayerMovement : PlayerBehaviour
 	private Animator AN_Animator;
 	private Rigidbody2D RB_Body;
 
+	[SerializeField] private ThinkBubble thinkBuble;
+
 	public bool FacingLeft = true;
 	public bool FacingUp = true;
 
@@ -38,11 +40,6 @@ public class PlayerMovement : PlayerBehaviour
 		{
 			FlipH();
 		}
-
-		if (pMoveV < 0 && FacingUp)
-		{
-			//FlipV();
-		}
 	}
 
 	private void FlipH()
@@ -52,15 +49,13 @@ public class PlayerMovement : PlayerBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
-	}
 
-	private void FlipV()
-	{
-		FacingUp = !FacingUp;
-
-		Vector3 theScale = transform.localScale;
-		theScale.y *= -1;
-		transform.localScale = theScale;
+		if (thinkBuble)
+		{
+			Vector3 bubleScale = thinkBuble.transform.localScale;
+			bubleScale.x *= -1;
+			thinkBuble.transform.localScale = bubleScale;
+		}
 	}
 
 	public float GetDistanceTo(Vector3 pPos)
